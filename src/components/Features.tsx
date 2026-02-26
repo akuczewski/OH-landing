@@ -8,7 +8,7 @@ const features = [
         color: "bg-accent-pink/30",
         buttonColor: "bg-danger-red",
         icon: "🌙",
-        image: "/screenshots/home.png",
+        image: "/screenshots/nawyki.png",
         reverse: false,
     },
     {
@@ -19,7 +19,8 @@ const features = [
         color: "bg-secondary-green/30",
         buttonColor: "bg-primary-green",
         icon: "🌿",
-        image: "/screenshots/nawyki.png",
+        image: "/screenshots/dieta.png",
+        imagePosition: "object-top",
         reverse: true,
     },
     {
@@ -30,9 +31,10 @@ const features = [
         color: "bg-accent-yellow/40",
         buttonColor: "bg-warning-amber",
         icon: "🍲",
-        image: "/screenshots/dieta.png",
+        image: "/screenshots/nawyki_v2.png",
         reverse: false,
     }
+
 
 ];
 
@@ -78,7 +80,7 @@ export default function Features() {
                                     <img
                                         src={feature.image}
                                         alt={feature.title}
-                                        className="w-[90%] h-[90%] object-cover rounded-[1.5rem] shadow-2xl"
+                                        className={`w-[90%] h-[90%] object-cover rounded-[1.5rem] shadow-2xl ${feature.imagePosition || 'object-center'}`}
                                     />
                                 </div>
                             </div>

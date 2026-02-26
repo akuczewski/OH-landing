@@ -8,7 +8,7 @@ const features = [
         color: "bg-accent-pink/30",
         buttonColor: "bg-danger-red",
         icon: "🌙",
-        imagePlaceholder: "bg-danger-red/20",
+        image: "/screenshots/home.png",
         reverse: false,
     },
     {
@@ -19,7 +19,7 @@ const features = [
         color: "bg-secondary-green/30",
         buttonColor: "bg-primary-green",
         icon: "🌿",
-        imagePlaceholder: "bg-primary-green/20",
+        image: "/screenshots/nawyki.png",
         reverse: true,
     },
     {
@@ -30,9 +30,10 @@ const features = [
         color: "bg-accent-yellow/40",
         buttonColor: "bg-warning-amber",
         icon: "🍲",
-        imagePlaceholder: "bg-warning-amber/20",
+        image: "/screenshots/dieta.png",
         reverse: false,
     }
+
 ];
 
 export default function Features() {
@@ -73,11 +74,12 @@ export default function Features() {
 
                             <div className="flex-1 w-full flex justify-center">
                                 {/* Mockup Card representing functionality */}
-                                <div className={`relative w-full max-w-md aspect-[4/3] rounded-[2.5rem] shadow-card flex items-center justify-center overflow-hidden ${feature.color} border-4 border-white`}>
-                                    <div className={`absolute inset-4 rounded-[2rem] ${feature.imagePlaceholder} backdrop-blur-md flex flex-col items-center justify-center p-8 text-center`}>
-                                        <h4 className="font-serif text-2xl font-bold mb-4 opacity-50">Zrzut ekranu aplikacji</h4>
-                                        <p className="font-sans font-medium text-sm opacity-60">Gdy aplikacja będzie gotowa, zamienimy ten blok na realny widok modułu {feature.title.toLowerCase()} z OH! Club.</p>
-                                    </div>
+                                <div className={`relative w-full max-w-md aspect-[4/5] rounded-[2.5rem] shadow-card flex items-center justify-center overflow-hidden ${feature.color} border-4 border-light-cream`}>
+                                    <img
+                                        src={feature.image}
+                                        alt={feature.title}
+                                        className="w-[90%] h-[90%] object-cover rounded-[1.5rem] shadow-2xl"
+                                    />
                                 </div>
                             </div>
 

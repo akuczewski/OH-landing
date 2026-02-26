@@ -50,36 +50,27 @@ export default function Hero() {
 
                 <div className="flex-1 relative w-full max-w-md lg:max-w-full flex justify-center lg:justify-end z-10 mt-12 lg:mt-0">
                     {/* Mockup Placeholder */}
-                    <div className="relative w-[300px] h-[600px] md:w-[350px] md:h-[700px] bg-light-cream border-8 border-text-dark rounded-[3rem] shadow-2xl overflow-hidden flex items-center justify-center">
-                        <div className="absolute top-0 w-40 h-7 bg-text-dark rounded-b-3xl"></div>
-                        <div className="w-full h-full p-6 flex flex-col">
-                            <div className="h-10 w-full mb-8"></div>
-                            {/* Fake UI */}
-                            <div className="w-full h-40 bg-accent-pink/40 rounded-3xl mb-4"></div>
-                            <div className="w-3/4 h-8 bg-secondary-green/40 rounded-xl mb-2"></div>
-                            <div className="w-1/2 h-6 bg-accent-yellow/40 rounded-xl mb-8"></div>
-
-                            <div className="flex gap-4 mb-6">
-                                <div className="w-1/2 h-32 bg-primary-green/20 rounded-3xl"></div>
-                                <div className="w-1/2 h-32 bg-primary-green/20 rounded-3xl"></div>
-                            </div>
-
-                            <div className="w-full flex-1 bg-text-dark/5 rounded-3xl"></div>
-                        </div>
+                    <div className="relative w-[300px] h-[600px] md:w-[350px] md:h-[700px] bg-light-cream border-8 border-text-dark rounded-[3rem] shadow-2xl overflow-hidden">
+                        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-40 h-7 bg-text-dark rounded-b-3xl z-20"></div>
+                        <img
+                            src="/screenshots/home.png"
+                            alt="Aplikacja OH! Club - widok główny"
+                            className="w-full h-full object-cover"
+                        />
                     </div>
 
                     {/* Floating UI Elements for aesthetic */}
-                    <div className="absolute top-20 -left-10 lg:left-0 bg-white p-4 rounded-2xl shadow-card transform -rotate-6 animate-pulse">
+                    <div className="absolute top-20 -left-10 lg:left-0 bg-light-cream p-4 rounded-2xl shadow-card transform -rotate-6 animate-pulse">
                         <div className="w-32 h-4 bg-accent-pink rounded-md mb-2"></div>
-                        <div className="w-24 h-3 bg-gray-200 rounded-md"></div>
+                        <div className="w-24 h-3 bg-text-dark/10 rounded-md"></div>
                     </div>
 
-                    <div className="absolute bottom-32 -right-6 lg:-right-10 bg-white p-4 rounded-2xl shadow-card transform rotate-6 animate-pulse" style={{ animationDelay: '1s' }}>
+                    <div className="absolute bottom-32 -right-6 lg:-right-10 bg-light-cream p-4 rounded-2xl shadow-card transform rotate-6 animate-pulse" style={{ animationDelay: '1s' }}>
                         <div className="flex items-center gap-3">
                             <div className="w-8 h-8 rounded-full bg-secondary-green"></div>
                             <div>
-                                <div className="w-20 h-4 bg-gray-800 rounded-md mb-1"></div>
-                                <div className="w-16 h-3 bg-gray-200 rounded-md"></div>
+                                <div className="w-20 h-4 bg-text-dark rounded-md mb-1"></div>
+                                <div className="w-16 h-3 bg-text-dark/10 rounded-md"></div>
                             </div>
                         </div>
                     </div>

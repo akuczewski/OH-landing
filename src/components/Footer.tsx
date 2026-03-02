@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export default function Footer() {
@@ -5,8 +6,17 @@ export default function Footer() {
         <footer className="bg-primary-green text-light-cream py-16 px-6 mt-20">
             <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
                 <div className="md:col-span-1 border-b border-light-cream/20 md:border-0 pb-8 md:pb-0">
-                    <Link href="/" className="font-serif text-4xl font-bold tracking-tighter text-accent-pink mb-6 inline-block">
-                        OH! Club
+                    <Link href="/" className="flex items-center gap-3 mb-6">
+                        <Image
+                            src="/logo.png"
+                            alt="OH! Club"
+                            width={50}
+                            height={50}
+                            className="rounded-xl shadow-md border border-light-cream/10"
+                        />
+                        <span className="font-serif text-3xl font-bold tracking-tighter text-accent-pink">
+                            OH! Club
+                        </span>
                     </Link>
                     <p className="text-light-cream/80 text-sm leading-relaxed mb-6 font-medium">
                         Twoja aplikacja, która rozumie kobiecy organizm. Połącz cykl, dietę, pielęgnację i medytację w jednym miejscu.

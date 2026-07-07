@@ -26,7 +26,8 @@ export default function Footer() {
                 <div>
                     <h3 className="font-serif text-xl font-bold mb-6 text-accent-yellow">Produkt</h3>
                     <ul className="space-y-4 text-sm font-medium">
-                        <li><Link href="/#features" className="hover:text-accent-pink transition-colors">Funkcje</Link></li>
+                        <li><Link href="/aplikacja" className="hover:text-accent-pink transition-colors">Aplikacja</Link></li>
+                        <li><Link href="/tworcy" className="hover:text-accent-pink transition-colors">Twórcy treści</Link></li>
                         <li><Link href="/cennik" className="hover:text-accent-pink transition-colors">Cennik</Link></li>
                         <li><Link href="/opinie" className="hover:text-accent-pink transition-colors">Opinie użytkowniczek</Link></li>
                         <li><Link href="/pobierz" className="hover:text-accent-pink transition-colors">Pobierz aplikację</Link></li>

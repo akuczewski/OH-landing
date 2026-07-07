@@ -1,5 +1,12 @@
+import type { Metadata } from "next";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+import { SITE } from "@/lib/site";
+
+export const metadata: Metadata = {
+    title: "Polityka Prywatności",
+    description: "Dowiedz się, jakie dane zbiera OH! Club, w jakim celu i jak chronimy Twoją prywatność.",
+};
 
 export default function PrivacyPolicy() {
     const lastUpdate = new Date().toLocaleDateString("pl-PL");
@@ -15,14 +22,15 @@ export default function PrivacyPolicy() {
                     <p>W OH! Club szanujemy Twoją prywatność i dbamy o bezpieczeństwo Twoich danych. Niniejsza Polityka Prywatności wyjaśnia, jakie dane zbieramy, w jakim celu je przetwarzamy oraz jakie przysługują Ci prawa w związku z korzystaniem z naszej aplikacji wellness.</p>
 
                     <h2 className="text-2xl font-serif text-primary-green mt-8 mb-4">1. Administrator Danych</h2>
-                    <p>Administratorem danych osobowych jest <strong>Great Skill Arkadiusz Kuczewski</strong> z siedzibą w [Adres], NIP: 7182147987. Kontakt we wszystkich sprawach związanych z danymi: [Adres e-mail].</p>
+                    <p>Administratorem danych osobowych jest <strong>{SITE.company}</strong> z siedzibą w {SITE.address}, NIP: {SITE.nip}. Kontakt we wszystkich sprawach związanych z danymi: {SITE.contactEmail}.</p>
 
                     <h2 className="text-2xl font-serif text-primary-green mt-8 mb-4">2. Kategorie Przetwarzanych Danych</h2>
                     <p>Zbieramy tylko te dane, które są niezbędne do prawidłowego świadczenia usług:</p>
                     <ul>
                         <li><strong>Dane identyfikacyjne:</strong> Adres e-mail, UID (logowanie przez Google Sign-In lub e-mail).</li>
-                        <li><strong>Dane biometryczne i fizyczne:</strong> Wiek, waga, wzrost, poziom aktywności oraz cele sylwetkowe (niezbędne do wyliczenia BMR/TDEE).</li>
-                        <li><strong>Dane o cyklu menstruacyjnym:</strong> Daty menstruacji, długość cyklu (przetwarzane na podstawie Twojej wyraźnej zgody).</li>
+                        <li><strong>Dane biometryczne i fizyczne:</strong> Wiek, waga, wzrost (niezbędne do wyliczenia BMR/TDEE). <strong>Te dane przechowywane są wyłącznie lokalnie na Twoim urządzeniu i nie są wysyłane do chmury</strong> — wyliczenia BMR/TDEE wykonywane są bezpośrednio na urządzeniu.</li>
+                        <li><strong>Dane o cyklu menstruacyjnym:</strong> Data ostatniej miesiączki i długość cyklu — synchronizowane z chmurą wyłącznie po to, by plan był spójny między Twoimi urządzeniami. <strong>Szczegółowa historia dat poszczególnych miesiączek przechowywana jest wyłącznie lokalnie na Twoim urządzeniu i nie jest wysyłana do chmury.</strong></li>
+                        <li><strong>Poziom aktywności i cele sylwetkowe:</strong> Wykorzystywane do wyliczenia zapotrzebowania kalorycznego i doboru planu.</li>
                         <li><strong>Dane o aktywności:</strong> Liczba kroków oraz statystyki aktywności pobierane z czujników urządzenia.</li>
                         <li><strong>Dane dla Użytkowników Premium/Platinum:</strong> W przypadku korzystania z płatnych pakietów, przetwarzamy również dane kontaktowe oraz adresowe niezbędne do realizacji usług dodatkowych.</li>
                     </ul>
@@ -56,15 +64,15 @@ export default function PrivacyPolicy() {
                     <p>Posiadasz pełną kontrolę nad swoimi danymi. Masz prawo do:</p>
                     <ul>
                         <li>Dostępu do swoich danych oraz ich sprostowania.</li>
-                        <li>Usunięcia danych ("Prawo do bycia zapomnianym").</li>
+                        <li>Usunięcia danych (&quot;Prawo do bycia zapomnianym&quot;).</li>
                         <li>Przenoszenia danych oraz wycofania zgody w dowolnym momencie.</li>
                     </ul>
                     <p>Z poziomu aplikacji w każdej chwili możesz trwale usunąć swoje konto wraz ze wszystkimi powiązanymi danymi.</p>
 
                     <h2 className="text-2xl font-serif text-primary-green mt-8 mb-4">7. Bezpieczeństwo</h2>
-                    <p>Wszystkie dane osobowe (e-mail, UID, profil, wyniki pomiarów) są przechowywane w chmurze Firebase i szyfrowane w tranzycie (HTTPS/TLS). Nie udostępniamy danych osobom trzecim poza usługami Google niezbędnymi do działania aplikacji oraz partnerami logistycznymi wskazanymi w punkcie 4.</p>
+                    <p>Dane profilu, nawyki, dieta, przeczytane artykuły oraz Twoje zgody są przechowywane w chmurze Firebase i szyfrowane w tranzycie (HTTPS/TLS). Wyniki pomiarów biometrycznych i szczegółowa historia cyklu nigdy nie opuszczają Twojego urządzenia. Nie udostępniamy danych osobom trzecim poza usługami Google niezbędnymi do działania aplikacji oraz partnerami logistycznymi wskazanymi w punkcie 4.</p>
 
-                    <p className="mt-12 text-sm">W razie pytań dotyczących prywatności, prosimy o kontakt pod adresem: [Adres e-mail].</p>
+                    <p className="mt-12 text-sm">W razie pytań dotyczących prywatności, prosimy o kontakt pod adresem: {SITE.contactEmail}.</p>
                 </div>
             </main>
             <Footer />

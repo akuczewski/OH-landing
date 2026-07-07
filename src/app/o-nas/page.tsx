@@ -1,5 +1,11 @@
+import type { Metadata } from "next";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+
+export const metadata: Metadata = {
+    title: "O nas",
+    description: "OH! Club to projekt tworzony przez kobiety dla kobiet — poznaj misję i podejście holistyczne stojące za aplikacją.",
+};
 
 export default function About() {
     return (

@@ -37,3 +37,87 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans);
 }
+
+h1, h2, h3, h4 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+/* Ziarno/grain — subtelna faktura tła zamiast płaskiego, cyfrowego wrażenia.
+   Stały, pozbawiony interakcji overlay (nie na scrollujących kontenerach — wydajność). */
+.grain-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  pointer-events: none;
+  opacity: 0.035;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Pionowa "nić" prowadząca przez sekcje strony głównej — motyw osobistej,
+   ciągłej historii zamiast rozłącznych bloków marketingowych. */
+.story-thread {
+  position: absolute;
+  left: 2.5rem;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, var(--color-secondary-green) 8%, var(--color-secondary-green) 92%, transparent);
+  opacity: 0.35;
+  /* Sekcje mają swój własny position:relative (dla markerów) i malują się PO nici
+     w kolejności DOM — bez z-index nić chowa się pod ich tłem. */
+  z-index: 1;
+}
+
+.thread-dot {
+  position: absolute;
+  left: calc(2.5rem - 4px);
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  background: var(--color-secondary-green);
+  box-shadow: 0 0 0 4px var(--color-cream);
+}
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+.reveal {
+  opacity: 0;
+}
+
+.reveal-in {
+  animation: reveal-up 900ms cubic-bezier(0.32, 0.72, 0, 1) forwards;
+}
+
+/* Wejście treści zawsze widocznej od pierwszego kadru (np. Hero) — czysta animacja CSS,
+   niezależna od hydracji JS. Nigdy nie utknie na opacity:0, bo silnik animacji przegląarki
+   odtwarza ją niezależnie od tego, kiedy (i czy) JS się uruchomi. */
+.enter {
+  animation: reveal-up 900ms cubic-bezier(0.32, 0.72, 0, 1) both;
+  animation-delay: var(--enter-delay, 0ms);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+  }
+  .reveal-in,
+  .enter {
+    animation: none;
+  }
+}

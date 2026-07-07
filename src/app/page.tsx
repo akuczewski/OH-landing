@@ -1,7 +1,11 @@
-import Features from "@/components/Features";
 import Footer from "@/components/Footer";
+import FounderStory from "@/components/FounderStory";
 import Hero from "@/components/Hero";
+import HowItHelps from "@/components/HowItHelps";
 import Navbar from "@/components/Navbar";
+import SignalsSection from "@/components/SignalsSection";
+import Testimonials from "@/components/Testimonials";
+import WhyStuckSection from "@/components/WhyStuckSection";
 
 export default function Home() {
   return (
@@ -10,7 +14,16 @@ export default function Home() {
 
       <main>
         <Hero />
-        <Features />
+        {/* Pionowa "nić" spinająca dalszą część strony w jedną, ciągłą historię
+            (widoczna tylko od lg — dekoracyjna, nie wpływa na treść/dostępność). */}
+        <div className="relative">
+          <div className="story-thread hidden lg:block" aria-hidden="true" />
+          <FounderStory />
+          <SignalsSection />
+          <WhyStuckSection />
+          <HowItHelps />
+          <Testimonials />
+        </div>
       </main>
 
       <Footer />

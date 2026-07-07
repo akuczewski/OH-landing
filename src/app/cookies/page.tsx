@@ -1,5 +1,12 @@
+import type { Metadata } from "next";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+import { SITE } from "@/lib/site";
+
+export const metadata: Metadata = {
+    title: "Polityka Cookies",
+    description: "Dowiedz się, jakich plików cookies używa serwis OH! Club i jak nimi zarządzać.",
+};
 
 export default function CookiesPolicy() {
     return (
@@ -26,7 +33,7 @@ export default function CookiesPolicy() {
                             <p>Serwis OH! Club wykorzystuje pliki cookies w celu:</p>
                             <ul className="list-disc pl-5 space-y-2">
                                 <li><strong>Niezbędnym:</strong> Zapewnienia prawidłowego działania podstawowych funkcji serwisu, takich jak logowanie, nawigacja i bezpieczeństwo. Bez tych plików serwis nie może działać poprawnie.</li>
-                                <li><strong>Analitycznym:</strong> Zrozumienia, w jaki sposób Użytkownicy korzystają z serwisu, co pozwala nam na ciągłe ulepszanie jego struktury i zawartości (np. poprzez narzędzie Google Analytics).</li>
+                                <li><strong>Analitycznym:</strong> Zrozumienia, w jaki sposób Użytkownicy korzystają z serwisu, co pozwala nam na ciągłe ulepszanie jego struktury i zawartości. Korzystamy z narzędzia Plausible Analytics — nie używa ono plików cookies ani nie zbiera danych osobowych, więc nie wymaga Twojej zgody.</li>
                                 <li><strong>Funkcjonalnym:</strong> Zapamiętania wybranych przez Użytkownika ustawień i personalizacji interfejsu (np. preferowany język czy motyw).</li>
                                 <li><strong>Marketingowym:</strong> Dopasowania treści reklamowych do zainteresowań Użytkownika oraz mierzenia skuteczności kampanii promocyjnych.</li>
                             </ul>
@@ -57,7 +64,7 @@ export default function CookiesPolicy() {
 
                     <div className="mt-12 pt-8 border-t border-stone-100 text-center">
                         <p className="text-stone-400 text-sm">
-                            W razie pytań dotyczących plików cookies, prosimy o kontakt pod adresem: hello@ohclub.app.
+                            W razie pytań dotyczących plików cookies, prosimy o kontakt pod adresem: {SITE.contactEmail}.
                         </p>
                     </div>
                 </div>

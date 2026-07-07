@@ -1,5 +1,11 @@
+import type { Metadata } from "next";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+
+export const metadata: Metadata = {
+    title: "Cennik",
+    description: "Poznaj plany OH! Club i wybierz ten, który najlepiej dopasuje się do Twojego cyklu.",
+};
 
 export default function Pricing() {
     return (
@@ -10,7 +16,7 @@ export default function Pricing() {
                 <p className="text-lg text-text-dark/80 mb-12">Wybierz plan idealny dla Ciebie i zacznij dbać o siebie w rytmie swojego cyklu.</p>
                 <div className="bg-white p-12 rounded-[2.5rem] shadow-card text-center max-w-xl mx-auto border-2 border-primary-green/20">
                     <h2 className="text-2xl font-bold mb-4">Wkrótce...</h2>
-                    <p>Pracujemy nas przygotowaniem najlepszej oferty.</p>
+                    <p>Pracujemy nad przygotowaniem najlepszej oferty.</p>
                 </div>
             </main>
             <Footer />

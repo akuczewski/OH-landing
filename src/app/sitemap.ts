@@ -1,7 +1,8 @@
 import { MetadataRoute } from 'next';
+import { SITE } from '@/lib/site';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-    const baseUrl = 'https://ohclub.pl'; // Placeholder dla docelowej domeny
+    const baseUrl = SITE.url;
 
     return [
         {

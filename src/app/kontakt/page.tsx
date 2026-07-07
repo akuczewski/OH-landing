@@ -1,5 +1,12 @@
+import type { Metadata } from "next";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+import { SITE } from "@/lib/site";
+
+export const metadata: Metadata = {
+    title: "Kontakt",
+    description: "Masz pytania lub sugestie dotyczące OH! Club? Skontaktuj się z nami.",
+};
 
 export default function Contact() {
     return (
@@ -11,7 +18,7 @@ export default function Contact() {
 
                 <div className="bg-white p-8 rounded-3xl shadow-sm max-w-2xl">
                     <p className="font-bold text-xl mb-2">E-mail</p>
-                    <a href="mailto:kontakt@ohclub.pl" className="text-primary-green hover:underline">kontakt@ohclub.pl</a>
+                    <a href={`mailto:${SITE.contactEmail}`} className="text-primary-green hover:underline">{SITE.contactEmail}</a>
 
                     <p className="font-bold text-xl mb-2 mt-8">Social Media</p>
                     <p className="text-text-dark/70">Odwiedź nasze profile na Instagramie i TikToku, aby być na bieżąco!</p>

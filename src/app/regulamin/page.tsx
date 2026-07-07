@@ -1,5 +1,12 @@
+import type { Metadata } from "next";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+import { SITE } from "@/lib/site";
+
+export const metadata: Metadata = {
+    title: "Regulamin",
+    description: "Regulamin korzystania z aplikacji i serwisu OH! Club.",
+};
 
 export default function Terms() {
     return (
@@ -21,7 +28,7 @@ export default function Terms() {
                             </p>
                             <ul className="list-none pl-0 space-y-3">
                                 <li><strong>1. Usługodawca</strong> – OH! Club (Właściciel serwisu), prowadzący działalność na rzecz Użytkowników zgodnie z obowiązującymi przepisami prawa.</li>
-                                <li><strong>2. OH! Club (dawniej Alloweat)</strong> – aplikacja opracowana oraz prowadzona przez Usługodawcę, udostępniana w wersji mobilnej oraz webowej, służąca do śledzenia cyklu, nawyków oraz wsparcia dobrostanu kobiet.</li>
+                                <li><strong>2. OH! Club</strong> – aplikacja opracowana oraz prowadzona przez Usługodawcę, udostępniana w wersji mobilnej oraz webowej, służąca do śledzenia cyklu, nawyków oraz wsparcia dobrostanu kobiet.</li>
                                 <li><strong>3. Konto</strong> – osobiste konto zakładane przez Użytkownika w aplikacji, umożliwiające dostęp do usług świadczonych przez Usługodawcę.</li>
                                 <li><strong>4. Materiały</strong> – wszelkie opracowania, treści, zdjęcia i informacje zamieszczane w aplikacji, w tym plany nawyków, przepisy i treści edukacyjne.</li>
                                 <li><strong>5. Użytkownik</strong> – każda osoba fizyczna korzystająca z Aplikacji zgodnie z jej przeznaczeniem.</li>
@@ -78,7 +85,7 @@ export default function Terms() {
                         <h2 className="font-playfair text-2xl text-primary-green border-b border-stone-100 pb-2 mb-6">§5 REKLAMACJE I ODSTĄPIENIE</h2>
                         <div className="space-y-4 text-stone-600 leading-relaxed">
                             <p>
-                                1. Wszelkie reklamacje dotyczące działania Serwisu mogą być zgłaszane drogą elektroniczną na adres: hello@ohclub.app.
+                                1. Wszelkie reklamacje dotyczące działania Serwisu mogą być zgłaszane drogą elektroniczną na adres: {SITE.contactEmail}.
                             </p>
                             <p>
                                 2. Usługodawca rozpatruje reklamacje w terminie 14 dni od ich otrzymania.

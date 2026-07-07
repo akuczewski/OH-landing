@@ -1,5 +1,12 @@
+import type { Metadata } from "next";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+import { SITE } from "@/lib/site";
+
+export const metadata: Metadata = {
+    title: "Usuwanie Konta i Danych",
+    description: "Dowiedz się, jak trwale usunąć konto i dane osobowe z aplikacji OH! Club.",
+};
 
 export default function DeleteAccount() {
     return (
@@ -29,19 +36,23 @@ export default function DeleteAccount() {
 
                     <h3 className="text-xl font-bold mt-6 mb-2">Sposób 2: Kontakt e-mailowy</h3>
                     <p>
-                        Jeśli nie masz już dostępu do aplikacji, możesz wysłać prośbę o usunięcie danych na adres: 
-                        <a href="mailto:[Adres e-mail]" className="text-primary-green hover:underline"> [Adres e-mail]</a>. 
+                        Jeśli nie masz już dostępu do aplikacji, możesz wysłać prośbę o usunięcie danych na adres:
+                        <a href={`mailto:${SITE.contactEmail}`} className="text-primary-green hover:underline"> {SITE.contactEmail}</a>.
                         W wiadomości podaj adres e-mail, na który zarejestrowane jest Twoje konto. Twoja prośba zostanie zrealizowana w ciągu 14 dni roboczych.
                     </p>
 
                     <h2 className="text-2xl font-serif text-primary-green mt-8 mb-4">Jakie dane zostaną usunięte?</h2>
-                    <p>Po zleceniu usunięcia konta, z naszych serwerów zostaną trwale skasowane następujące informacje:</p>
+                    <p>Po zleceniu usunięcia konta trwale kasujemy dane w dwóch miejscach:</p>
+                    <p className="font-bold mt-4 mb-2">Z naszych serwerów (Firebase):</p>
                     <ul className="list-disc pl-6 space-y-1">
                         <li>Dane identyfikacyjne (adres e-mail, identyfikator użytkownika).</li>
-                        <li>Wszystkie dane biometryczne (wiek, waga, wzrost).</li>
-                        <li>Historia cyklu menstruacyjnego i logi zdrowotne.</li>
-                        <li>Wygenerowane plany żywieniowe i treningowe.</li>
+                        <li>Profil, wygenerowane plany żywieniowe i treningowe.</li>
                         <li>Statystyki aktywności i osiągnięte odznaki.</li>
+                    </ul>
+                    <p className="font-bold mt-4 mb-2">Z Twojego urządzenia:</p>
+                    <ul className="list-disc pl-6 space-y-1">
+                        <li>Dane biometryczne (wiek, waga, wzrost) — te dane nigdy nie były wysyłane na nasze serwery.</li>
+                        <li>Historia cyklu menstruacyjnego i logi zdrowotne.</li>
                     </ul>
                     <p className="mt-4 italic">
                         Uwaga: Operacja ta jest nieodwracalna. Po usunięciu konta nie będziemy mogli przywrócić Twoich postępów ani historii.

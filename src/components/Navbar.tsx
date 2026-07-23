@@ -24,11 +24,8 @@ export default function Navbar() {
                     <Link href="/tworcy" className="hover:text-primary-green transition-colors text-text-dark/80 hover:text-text-dark">
                         Twórcy
                     </Link>
-                    <Link href="/o-nas" className="hover:text-primary-green transition-colors text-text-dark/80 hover:text-text-dark">
-                        O nas
-                    </Link>
-                    <Link href="/opinie" className="hover:text-primary-green transition-colors text-text-dark/80 hover:text-text-dark">
-                        Opinie
+                    <Link href="/cennik" className="hover:text-primary-green transition-colors text-text-dark/80 hover:text-text-dark">
+                        Cennik
                     </Link>
                 </nav>
                 <div className="flex items-center gap-4">

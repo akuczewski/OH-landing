@@ -1,55 +1,20 @@
-// Zestaw ikon SVG (styl: currentColor, wzorowany na AppleIcon/AndroidIcon z WaitlistForm)
-// zastępujących emotikony w treści landingu.
+// Zestaw ikon SVG (styl: currentColor) używanych w treści landingu.
 
 type IconProps = { className?: string };
 
-export function MoonIcon({ className = "" }: IconProps) {
+// Ścieżki wg Simple Icons (CC0) — logotypy marek pozostają znakami towarowymi ich właścicieli.
+export function AppleIcon({ className = "" }: IconProps) {
     return (
         <svg viewBox="0 0 24 24" className={className} fill="currentColor" aria-hidden="true">
-            <path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 1020.354 15.354z" />
+            <path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701" />
         </svg>
     );
 }
 
-export function LeafIcon({ className = "" }: IconProps) {
-    return (
-        <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true">
-            <path d="M5 20c8 0 14-6 14-14 0-1.1-.9-2-2-2C9 4 5 10 5 18c0 .7 0 1.4 0 2z" />
-            <path d="M5 20c0-5 2-9 6-12" strokeLinecap="round" />
-        </svg>
-    );
-}
-
-export function BowlIcon({ className = "" }: IconProps) {
-    return (
-        <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true">
-            <path d="M3 11h18a9 9 0 01-18 0z" strokeLinecap="round" strokeLinejoin="round" />
-            <path d="M8 11c0-2.5 1-4.5 2-6M12 11c0-3 1-5.5 2-7" strokeLinecap="round" />
-        </svg>
-    );
-}
-
-export function MailCheckIcon({ className = "" }: IconProps) {
-    return (
-        <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true">
-            <rect x="3" y="5" width="18" height="14" rx="2" strokeLinecap="round" strokeLinejoin="round" />
-            <path d="M3.5 6.5l7.5 6 2 0 7.5-6" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
-    );
-}
-
-export function SparkleIcon({ className = "" }: IconProps) {
+export function AndroidIcon({ className = "" }: IconProps) {
     return (
         <svg viewBox="0 0 24 24" className={className} fill="currentColor" aria-hidden="true">
-            <path d="M12 2l1.8 5.7L19.5 9l-5.7 1.8L12 16.5l-1.8-5.7L4.5 9l5.7-1.3L12 2zM19 15l.9 2.8L22.7 18l-2.8.9L19 21.7l-.9-2.8L15.3 18l2.8-.9L19 15z" />
-        </svg>
-    );
-}
-
-export function HeartIcon({ className = "" }: IconProps) {
-    return (
-        <svg viewBox="0 0 24 24" className={className} fill="currentColor" aria-hidden="true">
-            <path d="M12 21s-7.5-4.6-10-9.1C.5 8.7 2 5 5.6 5c2 0 3.4 1.1 4.4 2.5C11 6.1 12.4 5 14.4 5 18 5 19.5 8.7 22 11.9 19.5 16.4 12 21 12 21z" />
+            <path d="M18.4395 5.5586c-.675 1.1664-1.352 2.3318-2.0274 3.498-.0366-.0155-.0742-.0286-.1113-.043-1.8249-.6957-3.484-.8-4.42-.787-1.8551.0185-3.3544.4643-4.2597.8203-.084-.1494-1.7526-3.021-2.0215-3.4864a1.1451 1.1451 0 0 0-.1406-.1914c-.3312-.364-.9054-.4859-1.379-.203-.475.282-.7136.9361-.3886 1.5019 1.9466 3.3696-.0966-.2158 1.9473 3.3593.0172.031-.4946.2642-1.3926 1.0177C2.8987 12.176.452 14.772 0 18.9902h24c-.119-1.1108-.3686-2.099-.7461-3.0683-.7438-1.9118-1.8435-3.2928-2.7402-4.1836a12.1048 12.1048 0 0 0-2.1309-1.6875c.6594-1.122 1.312-2.2559 1.9649-3.3848.2077-.3615.1886-.7956-.0079-1.1191a1.1001 1.1001 0 0 0-.8515-.5332c-.5225-.0536-.9392.3128-1.0488.5449zm-.0391 8.461c.3944.5926.324 1.3306-.1563 1.6503-.4799.3197-1.188.0985-1.582-.4941-.3944-.5927-.324-1.3307.1563-1.6504.4727-.315 1.1812-.1086 1.582.4941zM7.207 13.5273c.4803.3197.5506 1.0577.1563 1.6504-.394.5926-1.1038.8138-1.584.4941-.48-.3197-.5503-1.0577-.1563-1.6504.4008-.6021 1.1087-.8106 1.584-.4941z" />
         </svg>
     );
 }

@@ -4,7 +4,7 @@ import Navbar from "@/components/Navbar";
 import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
-    title: "Usuwanie Konta i Danych",
+    title: "Usuwanie konta i danych",
     description: "Dowiedz się, jak trwale usunąć konto i dane osobowe z aplikacji OH! Club.",
 };
 
@@ -13,7 +13,7 @@ export default function DeleteAccount() {
         <div className="min-h-screen bg-cream text-text-dark font-sans selection:bg-accent-pink selection:text-text-dark">
             <Navbar />
             <main className="pt-32 pb-20 px-6 max-w-4xl mx-auto min-h-[70vh]">
-                <h1 className="font-serif text-5xl text-primary-green mb-8">Usuwanie Konta i Danych</h1>
+                <h1 className="font-serif text-5xl text-primary-green mb-8">Usuwanie konta i danych</h1>
                 
                 <div className="prose prose-lg text-text-dark/80 bg-white p-8 md:p-12 rounded-[2.5rem] shadow-sm max-w-none">
                     <p className="mb-6">
@@ -51,7 +51,7 @@ export default function DeleteAccount() {
                     </ul>
                     <p className="font-bold mt-4 mb-2">Z Twojego urządzenia:</p>
                     <ul className="list-disc pl-6 space-y-1">
-                        <li>Dane biometryczne (wiek, waga, wzrost) — te dane nigdy nie były wysyłane na nasze serwery.</li>
+                        <li>Dane biometryczne (wiek, waga, wzrost). Te dane nigdy nie były wysyłane na nasze serwery.</li>
                         <li>Historia cyklu menstruacyjnego i logi zdrowotne.</li>
                     </ul>
                     <p className="mt-4 italic">

@@ -21,36 +21,36 @@ export default function PrivacyPolicy() {
 
                     <p>W OH! Club szanujemy Twoją prywatność i dbamy o bezpieczeństwo Twoich danych. Niniejsza Polityka Prywatności wyjaśnia, jakie dane zbieramy, w jakim celu je przetwarzamy oraz jakie przysługują Ci prawa w związku z korzystaniem z naszej aplikacji wellness.</p>
 
-                    <h2 className="text-2xl font-serif text-primary-green mt-8 mb-4">1. Administrator Danych</h2>
+                    <h2 className="text-2xl font-serif text-primary-green mt-8 mb-4">1. Administrator danych</h2>
                     <p>Administratorem danych osobowych jest <strong>{SITE.company}</strong> z siedzibą w {SITE.address}, NIP: {SITE.nip}. Kontakt we wszystkich sprawach związanych z danymi: {SITE.contactEmail}.</p>
 
-                    <h2 className="text-2xl font-serif text-primary-green mt-8 mb-4">2. Kategorie Przetwarzanych Danych</h2>
+                    <h2 className="text-2xl font-serif text-primary-green mt-8 mb-4">2. Kategorie przetwarzanych danych</h2>
                     <p>Zbieramy tylko te dane, które są niezbędne do prawidłowego świadczenia usług:</p>
                     <ul>
                         <li><strong>Dane identyfikacyjne:</strong> Adres e-mail, UID (logowanie przez Google Sign-In lub e-mail).</li>
-                        <li><strong>Dane biometryczne i fizyczne:</strong> Wiek, waga, wzrost (niezbędne do wyliczenia BMR/TDEE). <strong>Te dane przechowywane są wyłącznie lokalnie na Twoim urządzeniu i nie są wysyłane do chmury</strong> — wyliczenia BMR/TDEE wykonywane są bezpośrednio na urządzeniu.</li>
-                        <li><strong>Dane o cyklu menstruacyjnym:</strong> Data ostatniej miesiączki i długość cyklu — synchronizowane z chmurą wyłącznie po to, by plan był spójny między Twoimi urządzeniami. <strong>Szczegółowa historia dat poszczególnych miesiączek przechowywana jest wyłącznie lokalnie na Twoim urządzeniu i nie jest wysyłana do chmury.</strong></li>
+                        <li><strong>Dane biometryczne i fizyczne:</strong> Wiek, waga, wzrost (niezbędne do wyliczenia BMR/TDEE). <strong>Te dane przechowywane są wyłącznie lokalnie na Twoim urządzeniu i nie są wysyłane do chmury.</strong> Wyliczenia BMR/TDEE wykonywane są bezpośrednio na urządzeniu.</li>
+                        <li><strong>Dane o cyklu menstruacyjnym:</strong> Data ostatniej miesiączki i długość cyklu, synchronizowane z chmurą wyłącznie po to, by plan był spójny między Twoimi urządzeniami. <strong>Szczegółowa historia dat poszczególnych miesiączek przechowywana jest wyłącznie lokalnie na Twoim urządzeniu i nie jest wysyłana do chmury.</strong></li>
                         <li><strong>Poziom aktywności i cele sylwetkowe:</strong> Wykorzystywane do wyliczenia zapotrzebowania kalorycznego i doboru planu.</li>
                         <li><strong>Dane o aktywności:</strong> Liczba kroków oraz statystyki aktywności pobierane z czujników urządzenia.</li>
-                        <li><strong>Dane dla Użytkowników Premium/Platinum:</strong> W przypadku korzystania z płatnych pakietów, przetwarzamy również dane kontaktowe oraz adresowe niezbędne do realizacji usług dodatkowych.</li>
+                        <li><strong>Dane dla użytkowniczek Premium/Platinum:</strong> W przypadku korzystania z płatnych pakietów, przetwarzamy również dane kontaktowe oraz adresowe niezbędne do realizacji usług dodatkowych.</li>
                     </ul>
 
-                    <h2 className="text-2xl font-serif text-primary-green mt-8 mb-4">3. Cel i Podstawa Prawna Przetwarzania</h2>
+                    <h2 className="text-2xl font-serif text-primary-green mt-8 mb-4">3. Cel i podstawa prawna przetwarzania</h2>
                     <ul>
                         <li><strong>Wykonanie usługi (Art. 6 ust. 1 lit. b RODO):</strong> Obsługa konta, generowanie planów oraz realizacja usług premium/platinum.</li>
                         <li><strong>Zgoda (Art. 9 ust. 2 lit. a RODO):</strong> Analiza i prognozowanie faz cyklu menstruacyjnego.</li>
                         <li><strong>Prawnie uzasadniony interes (Art. 6 ust. 1 lit. f RODO):</strong> Cele analityczne, optymalizacja aplikacji i zapewnienie bezpieczeństwa.</li>
                     </ul>
 
-                    <h2 className="text-2xl font-serif text-primary-green mt-8 mb-4">4. Odbiorcy Danych i Udostępnianie</h2>
+                    <h2 className="text-2xl font-serif text-primary-green mt-8 mb-4">4. Odbiorcy danych i udostępnianie</h2>
                     <p>Twoje dane są bezpiecznie przechowywane w chmurze Firebase. Ponadto:</p>
                     <ul>
-                        <li><strong>Partnerzy Biznesowi:</strong> Dane użytkowników pakietów Premium oraz Platinum (takie jak adres i dane kontaktowe) są udostępniane naszym zaufanym partnerom (np. <strong>Balancea</strong>) wyłącznie w celu prawidłowej realizacji wykupionych usług dodatkowych.</li>
-                        <li><strong>Dostawcy Techniczni:</strong> Google (Firebase) w zakresie utrzymania infrastruktury i autentykacji.</li>
+                        <li><strong>Partnerzy biznesowi:</strong> Dane użytkowniczek pakietów Premium oraz Platinum (takie jak adres i dane kontaktowe) są udostępniane naszym zaufanym partnerom (np. <strong>Balancea</strong>) wyłącznie w celu prawidłowej realizacji wykupionych usług dodatkowych.</li>
+                        <li><strong>Dostawcy techniczni:</strong> Google (Firebase) w zakresie utrzymania infrastruktury i autentykacji.</li>
                     </ul>
 
                     <div className="p-6 bg-accent-pink/10 rounded-2xl my-8 border border-accent-pink/20">
-                        <h2 className="text-2xl font-serif text-primary-green mt-0 mb-4">5. Ważne Zastrzeżenie Medyczne</h2>
+                        <h2 className="text-2xl font-serif text-primary-green mt-0 mb-4">5. Ważne zastrzeżenie medyczne</h2>
                         <p>Aplikacja OH! Club została stworzona wyłącznie w celach wspierających zdrowy tryb życia oraz budowanie zdrowych nawyków.</p>
                         <ul>
                             <li><strong>Brak charakteru medycznego:</strong> Aplikacja nie jest wyrobem medycznym ani substytutem wizyty lub konsultacji lekarskiej.</li>
@@ -60,7 +60,7 @@ export default function PrivacyPolicy() {
                         </ul>
                     </div>
 
-                    <h2 className="text-2xl font-serif text-primary-green mt-8 mb-4">6. Prawa Użytkownika</h2>
+                    <h2 className="text-2xl font-serif text-primary-green mt-8 mb-4">6. Prawa użytkowniczki</h2>
                     <p>Posiadasz pełną kontrolę nad swoimi danymi. Masz prawo do:</p>
                     <ul>
                         <li>Dostępu do swoich danych oraz ich sprostowania.</li>

@@ -1,6 +1,6 @@
 import Link from "next/link";
+import DownloadButtons from "./DownloadButtons";
 import Eyebrow from "./Eyebrow";
-import WaitlistForm from "./WaitlistForm";
 
 export default function Hero() {
     return (
@@ -15,7 +15,7 @@ export default function Hero() {
             <div className="max-w-7xl mx-auto w-full flex flex-col lg:flex-row items-center gap-16 lg:gap-20">
                 <div className="flex-1 text-center lg:text-left flex flex-col items-center lg:items-start z-10 max-w-2xl">
                     <div className="enter">
-                        <Eyebrow>Premiera wkrótce</Eyebrow>
+                        <Eyebrow>Dostępne na iOS i Androida</Eyebrow>
                     </div>
 
                     <h1
@@ -32,28 +32,17 @@ export default function Hero() {
                         style={{ "--enter-delay": "220ms" } as React.CSSProperties}
                     >
                         Dieta, nawyki i rytuały pielęgnacyjne dopasowane do Twojej aktualnej fazy
-                        cyklu — a Twoje dane zdrowotne zostają na Twoim telefonie.
+                        cyklu, a Twoje dane zdrowotne zostają na Twoim telefonie.
                     </p>
 
-                    <div className="enter w-full" style={{ "--enter-delay": "320ms" } as React.CSSProperties}>
-                        <div className="flex flex-col sm:flex-row gap-4 w-full justify-center lg:justify-start">
-                            <Link
-                                href="#waitlist"
-                                className="group inline-flex items-center gap-3 bg-text-dark text-cream pl-8 pr-2 py-2 rounded-full text-lg font-bold shadow-soft hover:shadow-card transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] active:scale-[0.98]"
-                            >
-                                Zapisz się na premierę
-                                <span className="w-11 h-11 rounded-full bg-cream/15 flex items-center justify-center transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
-                                    ↗
-                                </span>
-                            </Link>
-                            <Link
-                                href="/aplikacja"
-                                className="inline-flex items-center justify-center bg-transparent border-2 border-primary-green/30 text-primary-green px-8 py-4 rounded-full text-lg font-bold hover:border-primary-green hover:bg-primary-green/5 transition-all duration-300 text-center"
-                            >
-                                Poznaj aplikację
-                            </Link>
-                        </div>
-                        <WaitlistForm id="waitlist" className="mt-8 w-full max-w-xl" />
+                    <div className="enter w-full flex flex-col items-center lg:items-start gap-4" style={{ "--enter-delay": "320ms" } as React.CSSProperties}>
+                        <DownloadButtons />
+                        <Link
+                            href="/aplikacja"
+                            className="text-primary-green font-semibold underline underline-offset-4 hover:text-secondary-green transition-colors duration-300"
+                        >
+                            Poznaj aplikację →
+                        </Link>
                     </div>
                 </div>
 

@@ -20,7 +20,7 @@ export default function Contact() {
                     <p className="font-bold text-xl mb-2">E-mail</p>
                     <a href={`mailto:${SITE.contactEmail}`} className="text-primary-green hover:underline">{SITE.contactEmail}</a>
 
-                    <p className="font-bold text-xl mb-2 mt-8">Social Media</p>
+                    <p className="font-bold text-xl mb-2 mt-8">Media społecznościowe</p>
                     <p className="text-text-dark/70">Odwiedź nasze profile na Instagramie i TikToku, aby być na bieżąco!</p>
                 </div>
             </main>

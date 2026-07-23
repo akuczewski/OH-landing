@@ -17,7 +17,7 @@ export default function Press() {
                 <p className="text-lg text-text-dark/80 mb-12">Informacje prasowe, assety wizualne i pakiety informacyjne dla dziennikarzy i twórców.</p>
 
                 <div className="bg-white p-8 rounded-3xl shadow-sm border border-secondary-green/20 max-w-2xl">
-                    <h2 className="text-2xl font-serif text-primary-green mb-4">Press Kit (Wkrótce)</h2>
+                    <h2 className="text-2xl font-serif text-primary-green mb-4">Materiały prasowe (wkrótce)</h2>
                     <p className="text-text-dark/70 mb-6">Pracujemy nad przygotowaniem dedykowanego pakietu dla mediów zawierającego logotypy, makiety aplikacji i wysokiej jakości grafiki.</p>
                     <p className="font-bold">Wycinki prasowe i pytania prosimy kierować na: {SITE.mediaEmail}</p>
                 </div>

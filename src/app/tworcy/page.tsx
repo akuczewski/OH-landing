@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+import CreatorCard from "@/components/CreatorCard";
+import { getCreatorSocials } from "@/lib/creatorSocials";
 import { getCreators } from "@/lib/strapi";
 
 export const metadata: Metadata = {
     title: "Twórcy treści",
-    description: "Poznaj ekspertki tworzące treści w OH! Club — dietetyczkę, kosmetolożkę i trenerki, które dzielą się wiedzą i doświadczeniem.",
+    description: "Poznaj ekspertki tworzące treści w OH! Club: dietetyczkę, kosmetolożkę i trenerki, które dzielą się wiedzą i doświadczeniem.",
 };
 
 export default async function ContentCreators() {
@@ -31,35 +32,9 @@ export default async function ContentCreators() {
                         </p>
                     </div>
                 ) : (
-                    <div className="grid md:grid-cols-2 gap-8">
+                    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
                         {creators.map((creator) => (
-                            <div key={creator.id} className="bg-white rounded-[2rem] shadow-card p-6 flex gap-5">
-                                <div
-                                    className="w-24 h-24 rounded-2xl shrink-0 overflow-hidden flex items-center justify-center"
-                                    style={{ backgroundColor: creator.avatarBg }}
-                                >
-                                    {creator.imageUrl ? (
-                                        <Image
-                                            src={creator.imageUrl}
-                                            alt={creator.name}
-                                            width={96}
-                                            height={96}
-                                            className={`w-full h-full ${creator.imageFit === "contain" ? "object-contain" : "object-cover"} ${creator.imageAlign === "top" ? "object-top" : "object-center"}`}
-                                        />
-                                    ) : (
-                                        <span className="font-serif text-3xl text-primary-green">
-                                            {creator.name.charAt(0)}
-                                        </span>
-                                    )}
-                                </div>
-                                <div className="min-w-0">
-                                    <h2 className="font-serif text-xl text-primary-green font-bold">{creator.name}</h2>
-                                    <p className="text-sm text-text-dark/50 font-semibold mb-2">{creator.role}</p>
-                                    <p className="text-sm text-text-dark/70 leading-relaxed line-clamp-5 whitespace-pre-line">
-                                        {creator.bio}
-                                    </p>
-                                </div>
-                            </div>
+                            <CreatorCard key={creator.id} creator={creator} socials={getCreatorSocials(creator.name)} />
                         ))}
                     </div>
                 )}

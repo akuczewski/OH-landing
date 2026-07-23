@@ -2,6 +2,7 @@ import Footer from "@/components/Footer";
 import FounderStory from "@/components/FounderStory";
 import Hero from "@/components/Hero";
 import HowItHelps from "@/components/HowItHelps";
+import MarqueeTicker from "@/components/MarqueeTicker";
 import Navbar from "@/components/Navbar";
 import SignalsSection from "@/components/SignalsSection";
 import Testimonials from "@/components/Testimonials";
@@ -14,6 +15,7 @@ export default function Home() {
 
       <main>
         <Hero />
+        <MarqueeTicker />
         {/* Pionowa "nić" spinająca dalszą część strony w jedną, ciągłą historię
             (widoczna tylko od lg — dekoracyjna, nie wpływa na treść/dostępność). */}
         <div className="relative">

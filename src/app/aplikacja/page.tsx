@@ -5,7 +5,7 @@ import Navbar from "@/components/Navbar";
 
 export const metadata: Metadata = {
     title: "Aplikacja",
-    description: "Zobacz, jak OH! Club dopasowuje dietę, nawyki i rytuały do Twojego celu i rytmu cyklu — oraz jak chronimy Twoją prywatność.",
+    description: "Zobacz, jak OH! Club dopasowuje dietę, nawyki i rytuały do Twojego celu i rytmu cyklu, oraz jak chronimy Twoją prywatność.",
 };
 
 const goals = [
@@ -27,7 +27,7 @@ const goals = [
     {
         id: "glow-up",
         title: "Glow-up",
-        description: "Wszystko w jednym miejscu — dla tych, które chcą po prostu poczuć się lepiej.",
+        description: "Wszystko w jednym miejscu, dla tych, które chcą po prostu poczuć się lepiej.",
     },
 ];
 
@@ -36,14 +36,10 @@ export default function AplikacjaPage() {
         <div className="min-h-screen bg-cream text-text-dark font-sans selection:bg-accent-pink selection:text-text-dark">
             <Navbar />
             <main className="pt-32">
-                <div className="max-w-7xl mx-auto px-6 text-center mb-16">
-                    <h1 className="font-serif text-5xl md:text-6xl text-primary-green mb-6">
-                        Aplikacja dopasowana do Twojego celu
+                <div className="max-w-4xl mx-auto px-6 text-center mb-16">
+                    <h1 className="font-serif text-4xl md:text-5xl text-primary-green leading-tight mb-6">
+                        Wypełnij quiz już dziś, a aplikacja dostosuje odpowiedni program do Twoich potrzeb
                     </h1>
-                    <p className="text-lg md:text-xl text-text-dark/70 max-w-2xl mx-auto font-medium">
-                        Wybierz cel, który jest dla Ciebie najważniejszy teraz — OH! Club dopasuje do
-                        niego dietę, nawyki i rytuały. Możesz zmienić go w każdej chwili.
-                    </p>
                 </div>
 
                 <section className="max-w-7xl mx-auto px-6 mb-28">
@@ -64,8 +60,8 @@ export default function AplikacjaPage() {
                         Twoje dane zdrowotne zostają na Twoim telefonie
                     </h2>
                     <p className="text-lg text-text-dark/70 leading-relaxed max-w-2xl mx-auto">
-                        Wiek, waga, wzrost i historia cyklu nigdy nie trafiają do naszej chmury —
-                        przechowujemy je wyłącznie lokalnie, na Twoim urządzeniu. Do naszych serwerów
+                        Wiek, waga, wzrost i historia cyklu nigdy nie trafiają do naszej chmury.
+                        Przechowujemy je wyłącznie lokalnie, na Twoim urządzeniu. Do naszych serwerów
                         wysyłamy jedynie podstawowe informacje potrzebne do działania konta: profil,
                         nawyki i plan diety.
                     </p>

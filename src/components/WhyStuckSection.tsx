@@ -19,10 +19,11 @@ export default function WhyStuckSection() {
                 <Reveal>
                     <Eyebrow>Zanim spróbujesz kolejnej rzeczy</Eyebrow>
                     <h2 className="font-serif text-3xl md:text-[2.75rem] text-primary-green font-bold mt-5 mb-6 leading-[1.15] tracking-tight max-w-2xl">
-                        Dlaczego chwilowe efekty tak często znikają?
+                        Dlaczego chwilowe efekty tak często{" "}
+                        <span className="text-secondary-green italic">znikają?</span>
                     </h2>
                     <p className="text-lg text-text-dark/70 max-w-2xl leading-relaxed mb-14">
-                        Suplement, nowa dieta, kolejny krem — bywa chwilowa poprawa, a po pewnym czasie
+                        Suplement, nowa dieta, kolejny krem: bywa chwilowa poprawa, a po pewnym czasie
                         wszystko wraca. Najczęściej dlatego, że skupiamy się na pojedynczych objawach,
                         zamiast spojrzeć na organizm jak na cały, powiązany ze sobą system.
                     </p>
@@ -49,8 +50,8 @@ export default function WhyStuckSection() {
 
                 <Reveal delayMs={260}>
                     <p className="max-w-xl text-lg text-text-dark/70 leading-relaxed border-l-2 border-secondary-green/30 pl-6">
-                        Dopiero kiedy zaczynamy patrzeć na organizm całościowo — i dopasowujemy nawyki
-                        do rytmu własnego cyklu — pojawia się trwalsza zmiana.
+                        Dopiero kiedy zaczynamy patrzeć na organizm całościowo i dopasowujemy nawyki
+                        do rytmu własnego cyklu, pojawia się trwalsza zmiana.
                     </p>
                 </Reveal>
             </div>

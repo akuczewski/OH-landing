@@ -23,7 +23,7 @@ export default function CookiesPolicy() {
                     <section className="mb-10">
                         <h2 className="font-playfair text-2xl text-primary-green border-b border-stone-100 pb-2 mb-6">1. Czym są pliki cookies?</h2>
                         <p className="text-stone-600 leading-relaxed">
-                            Pliki cookies (tzw. „ciasteczka”) to dane informatyczne, w szczególności pliki tekstowe, które przechowywane są w urządzeniu końcowym Użytkownika Serwisu (np. komputerze, smartfonie, tablecie) i przeznaczone są do korzystania ze stron internetowych Serwisu. Cookies zazwyczaj zawierają nazwę strony internetowej, z której pochodzą, czas przechowywania ich na urządzeniu końcowym oraz unikalny numer.
+                            Pliki cookies (tzw. „ciasteczka”) to dane informatyczne, w szczególności pliki tekstowe, które przechowywane są w urządzeniu końcowym użytkowniczki serwisu (np. komputerze, smartfonie, tablecie) i przeznaczone są do korzystania ze stron internetowych serwisu. Cookies zazwyczaj zawierają nazwę strony internetowej, z której pochodzą, czas przechowywania ich na urządzeniu końcowym oraz unikalny numer.
                         </p>
                     </section>
 
@@ -33,9 +33,9 @@ export default function CookiesPolicy() {
                             <p>Serwis OH! Club wykorzystuje pliki cookies w celu:</p>
                             <ul className="list-disc pl-5 space-y-2">
                                 <li><strong>Niezbędnym:</strong> Zapewnienia prawidłowego działania podstawowych funkcji serwisu, takich jak logowanie, nawigacja i bezpieczeństwo. Bez tych plików serwis nie może działać poprawnie.</li>
-                                <li><strong>Analitycznym:</strong> Zrozumienia, w jaki sposób Użytkownicy korzystają z serwisu, co pozwala nam na ciągłe ulepszanie jego struktury i zawartości. Korzystamy z narzędzia Plausible Analytics — nie używa ono plików cookies ani nie zbiera danych osobowych, więc nie wymaga Twojej zgody.</li>
-                                <li><strong>Funkcjonalnym:</strong> Zapamiętania wybranych przez Użytkownika ustawień i personalizacji interfejsu (np. preferowany język czy motyw).</li>
-                                <li><strong>Marketingowym:</strong> Dopasowania treści reklamowych do zainteresowań Użytkownika oraz mierzenia skuteczności kampanii promocyjnych.</li>
+                                <li><strong>Analitycznym:</strong> Zrozumienia, w jaki sposób użytkowniczki korzystają z serwisu, co pozwala nam na ciągłe ulepszanie jego struktury i zawartości. Korzystamy z narzędzia Google Analytics, które używa plików cookies, dlatego uruchamiamy je wyłącznie po Twojej zgodzie (patrz baner zgody na cookies).</li>
+                                <li><strong>Funkcjonalnym:</strong> Zapamiętania wybranych przez użytkowniczkę ustawień i personalizacji interfejsu (np. preferowany język czy motyw).</li>
+                                <li><strong>Marketingowym:</strong> Dopasowania treści reklamowych do zainteresowań użytkowniczki oraz mierzenia skuteczności kampanii promocyjnych.</li>
                             </ul>
                         </div>
                     </section>

@@ -6,7 +6,7 @@ import Eyebrow from "./Eyebrow";
 import Reveal from "./Reveal";
 
 const featured = {
-    quote: "Wróciła mi energia, a dni okresu przestały być męką — mogę normalnie funkcjonować.",
+    quote: "Wróciła mi energia, a dni okresu przestały być męką. Mogę normalnie funkcjonować.",
     context: "opinia o współpracy z Klaudią",
 };
 
@@ -20,7 +20,7 @@ const supporting = [
         context: "opinia o współpracy z Klaudią",
     },
     {
-        quote: "Podchodzi do tematu holistycznie i bardzo indywidualnie — czułam się wysłuchana na każdym etapie.",
+        quote: "Podchodzi do tematu holistycznie i bardzo indywidualnie, czułam się wysłuchana na każdym etapie.",
         context: "opinia o współpracy z Klaudią",
     },
 ];

@@ -3,7 +3,7 @@ import Reveal from "./Reveal";
 
 const signals = [
     "nieregularny lub bolesny cykl",
-    "nasilony PMS — rozdrażnienie, spadki nastroju",
+    "nasilony PMS: rozdrażnienie, spadki nastroju",
     "gorsza kondycja skóry",
     "wypadanie lub przerzedzanie włosów",
     "przewlekłe zmęczenie i brak energii",
@@ -23,7 +23,8 @@ export default function SignalsSection() {
                     <div className="lg:sticky lg:top-32">
                         <Eyebrow>Czy to o Tobie?</Eyebrow>
                         <h2 className="font-serif text-3xl md:text-[2.75rem] text-primary-green font-bold mt-5 mb-6 leading-[1.15] tracking-tight">
-                            Wiele kobiet latami żyje z sygnałami, które wydają się „normalne”
+                            Wiele kobiet latami żyje z sygnałami, które wydają się{" "}
+                            <span className="text-secondary-green italic">„normalne”</span>
                         </h2>
                         <p className="text-lg text-text-dark/70 leading-relaxed">
                             Zmęczenie, wahania nastroju czy nieregularny cykl często traktujemy jako
@@ -48,7 +49,7 @@ export default function SignalsSection() {
                         <p className="mt-8 pt-6 border-t border-secondary-green/15 text-sm text-text-dark/50 italic leading-relaxed">
                             To nie jest diagnoza. Jeśli któryś z tych sygnałów Cię niepokoi,
                             skonsultuj się z lekarzem. OH! Club wspiera zdrowe nawyki i świadomość
-                            cyklu — nie zastępuje opieki medycznej.
+                            cyklu, nie zastępuje opieki medycznej.
                         </p>
                     </div>
                 </Reveal>

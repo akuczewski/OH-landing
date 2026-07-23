@@ -1,40 +1,30 @@
-import { BowlIcon, LeafIcon, MoonIcon } from "./icons";
-
 const features = [
     {
         id: "cykl",
-        title: "Zrozum Swój Cykl",
+        title: "Zrozum swój cykl",
         subtitle: "Dostrojone do Twojego rytmu",
         description: "Zapomnij o uniwersalnych planach. OH! Club dynamicznie dostosowuje kaloryczność, intensywność treningów i formę medytacji do Twojej aktualnej fazy cyklu (menstruacyjnej, folikularnej, lutealnej).",
         color: "bg-accent-pink/30",
-        Icon: MoonIcon,
-        // Nazwy plików w public/screenshots nie odpowiadają ich faktycznej zawartości —
-        // profil.png realnie pokazuje widok fazy cyklu i historię objawów.
-        image: "/screenshots/profil.png",
+        image: "/images/aplikacja/cykl.jpg",
         reverse: false,
     },
     {
         id: "rutyny",
-        title: "Nawykowe Care Rituals",
-        subtitle: "Codzienna pielęgnacja zdrowia",
+        title: "Rytuały pielęgnacyjne na każdy dzień",
+        subtitle: "Małe kroki, wielka różnica",
         description: "Dbaj o każdy aspekt siebie za pomocą małych kroków. Wykorzystaj zintegrowany timer do monitorowania swoich nawyków: od snu i nawodnienia, po medytację. Ustawiaj muzykę w tle bez wychodzenia z aplikacji.",
         color: "bg-secondary-green/30",
-        Icon: LeafIcon,
-        // nawyki_v2.png realnie pokazuje listę nawyków (nawyki.png pokazuje dashboard, nie nawyki).
-        image: "/screenshots/nawyki_v2.png",
+        image: "/images/aplikacja/rytial.jpeg",
+        imagePosition: "object-top",
         reverse: true,
     },
     {
         id: "plany",
-        title: "Holistyczne Plany (Dieta & Treningi)",
+        title: "Holistyczne plany diety i treningów",
         subtitle: "Odżywiaj się mądrze, trenuj rozsądnie",
         description: "Przeglądaj autorskie przepisy kulinarne i plany treningowe, tworzone przez ekspertów. Posiłki dopasowane i zbilansowane specjalnie dla poszczególnych faz Twojego cyklu, ułatwią Ci codzienne gotowanie i dbanie o siebie.",
         color: "bg-accent-yellow/40",
-        Icon: BowlIcon,
-        // home.png realnie pokazuje ekran Jadłospisu (dieta.png pokazuje nawyki, nie dietę);
-        // ten sam plik jest też użyty w Hero — brak jeszcze dedykowanego, odrębnego zrzutu diety.
-        image: "/screenshots/home.png",
-        imagePosition: "object-top",
+        image: "/images/aplikacja/dieta.jpg",
         reverse: false,
     }
 ];
@@ -61,9 +51,6 @@ export default function Features() {
                         >
 
                             <div className="flex-1 space-y-6">
-                                <div className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl ${feature.color} mb-4 shadow-sm`}>
-                                    <feature.Icon className="w-7 h-7 text-primary-green" />
-                                </div>
                                 <h4 className="text-sm font-bold tracking-widest uppercase text-text-dark/50">
                                     {feature.subtitle}
                                 </h4>

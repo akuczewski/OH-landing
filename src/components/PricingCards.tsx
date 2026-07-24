@@ -83,7 +83,9 @@ export default function PricingCards() {
 
             <div className="grid md:grid-cols-2 gap-6 items-stretch max-w-3xl mx-auto">
                 {plans.map((plan) => {
-                    const price = billing === "monthly" ? plan.monthlyPrice : plan.annualPrice;
+                    // Przy rocznym planie duża cena to ekwiwalent miesięczny (annualPrice / 12) —
+                    // realna kwota pobierana jednorazowo raz w roku jest podana niżej, małym drukiem.
+                    const displayPrice = billing === "monthly" ? plan.monthlyPrice : plan.annualPrice / 12;
                     const savings = annualSavingsPercent(plan.monthlyPrice, plan.annualPrice);
 
                     return (
@@ -111,14 +113,15 @@ export default function PricingCards() {
 
                             <div className="mb-6">
                                 <span className="font-serif text-4xl font-bold">
-                                    {formatPrice(price)} zł
+                                    {formatPrice(displayPrice)} zł
                                 </span>
                                 <span className={plan.highlighted ? "text-cream/70" : "text-text-dark/50"}>
-                                    {billing === "monthly" ? "/mies." : "/rok"}
+                                    /mies.
                                 </span>
-                                {billing === "annual" && savings && (
-                                    <p className={`text-xs mt-1 font-bold ${plan.highlighted ? "text-cream/80" : "text-primary-green"}`}>
-                                        Oszczędzasz {savings}% względem płatności miesięcznej
+                                {billing === "annual" && (
+                                    <p className={`text-xs mt-1 ${plan.highlighted ? "text-cream/60" : "text-text-dark/50"}`}>
+                                        {formatPrice(plan.annualPrice)} zł płatne raz w roku
+                                        {savings ? `, oszczędzasz ${savings}%` : ""}
                                     </p>
                                 )}
                             </div>

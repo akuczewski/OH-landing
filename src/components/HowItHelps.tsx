@@ -61,7 +61,7 @@ export default function HowItHelps() {
 
                         {/* Drugie wystąpienie realnego zrzutu apki — przypomnienie tuż przed
                             CTA, że to działający produkt, nie makieta. */}
-                        <div className="shrink-0 p-2 rounded-[1.75rem] bg-text-dark/95 shadow-card rotate-2">
+                        <div className="self-start shrink-0 p-2 rounded-[1.75rem] bg-text-dark/95 shadow-card rotate-2">
                             <div className="w-32 h-56 rounded-[1.4rem] overflow-hidden">
                                 <img
                                     src="/screenshots/nawyki_v2.png"

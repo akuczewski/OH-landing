@@ -1,5 +1,4 @@
 import Link from "next/link";
-import DownloadButtons from "./DownloadButtons";
 import Eyebrow from "./Eyebrow";
 
 export default function Hero() {
@@ -19,30 +18,29 @@ export default function Hero() {
                     </div>
 
                     <h1
-                        className="enter font-serif text-5xl md:text-6xl lg:text-7xl mt-6 mb-7 text-primary-green leading-[1.05] tracking-tight"
+                        className="enter font-serif text-4xl md:text-5xl lg:text-6xl mt-6 mb-7 text-primary-green leading-[1.15] tracking-tight"
                         style={{ "--enter-delay": "120ms" } as React.CSSProperties}
                     >
-                        Zrozum swoje ciało.
-                        <br />
-                        <span className="text-secondary-green italic">Zadbaj o swój rytm.</span>
+                        Chcesz odzyskać równowagę hormonalną bez zgadywania i rygorystycznych diet?
                     </h1>
 
                     <p
                         className="enter text-lg md:text-xl text-text-dark/75 max-w-lg mb-10 leading-relaxed"
                         style={{ "--enter-delay": "220ms" } as React.CSSProperties}
                     >
-                        Dieta, nawyki i rytuały pielęgnacyjne dopasowane do Twojej aktualnej fazy
-                        cyklu, a Twoje dane zdrowotne zostają na Twoim telefonie.
+                        Wypełnij krótki quiz, a dopasujemy plan odżywiania do Twoich potrzeb.
+                        Aplikacja zajmie się resztą - dostosowując ruch i rytuały pielęgnacyjne do
+                        aktualnej fazy Twojego cyklu.
                     </p>
 
-                    <div className="enter w-full flex flex-col items-center lg:items-start gap-4" style={{ "--enter-delay": "320ms" } as React.CSSProperties}>
-                        <DownloadButtons />
+                    <div className="enter w-full flex flex-col items-center lg:items-start gap-3" style={{ "--enter-delay": "320ms" } as React.CSSProperties}>
                         <Link
-                            href="/aplikacja"
-                            className="text-primary-green font-semibold underline underline-offset-4 hover:text-secondary-green transition-colors duration-300"
+                            href="/pobierz"
+                            className="inline-flex items-center justify-center px-8 py-4 rounded-full text-base font-bold bg-primary-green text-light-cream shadow-soft hover:bg-secondary-green hover:shadow-card transition-all duration-300 active:scale-[0.98]"
                         >
-                            Poznaj aplikację →
+                            Pobierz aplikację i wypełnij quiz
                         </Link>
+                        <p className="text-sm text-text-dark/60">Zajmuje tylko 2 minuty</p>
                     </div>
                 </div>
 

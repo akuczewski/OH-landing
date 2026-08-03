@@ -25,8 +25,8 @@ export default function CookieConsent() {
     return (
         <div className="fixed bottom-4 inset-x-4 md:inset-x-auto md:right-6 md:bottom-6 md:max-w-md z-[60] bg-white rounded-[1.75rem] shadow-card ring-1 ring-black/[0.05] p-6">
             <p className="text-sm text-text-dark/80 leading-relaxed mb-4">
-                Używamy plików cookie do analizy ruchu na stronie (Google Analytics). Niezbędne
-                cookies są zawsze aktywne. Więcej w{" "}
+                Używamy plików cookie do analizy ruchu na stronie i pomiaru skuteczności reklam
+                (Google Analytics, Meta Pixel). Niezbędne cookies są zawsze aktywne. Więcej w{" "}
                 <Link href="/cookies" className="underline hover:text-primary-green">
                     Polityce Cookies
                 </Link>

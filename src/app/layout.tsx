@@ -3,6 +3,7 @@ import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import Analytics from "@/components/Analytics";
 import CookieConsent from "@/components/CookieConsent";
+import MetaPixel from "@/components/MetaPixel";
 import { SITE } from "@/lib/site";
 
 const inter = Inter({
@@ -44,6 +45,7 @@ export const metadata: Metadata = {
 };
 
 const gaMeasurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+const metaPixelId = process.env.NEXT_PUBLIC_META_PIXEL_ID;
 
 export default function RootLayout({
   children,
@@ -57,6 +59,7 @@ export default function RootLayout({
         {children}
         <CookieConsent />
         <Analytics measurementId={gaMeasurementId} />
+        <MetaPixel pixelId={metaPixelId} />
       </body>
     </html>
   );

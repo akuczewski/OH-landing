@@ -12,6 +12,13 @@ function trackClaim(platform: Platform, outcome: string) {
     }
 }
 
+/** Meta Pixel StartTrial — tylko przy realnie wydanym kodzie, nie przy błędzie/wyczerpaniu puli. */
+function trackStartTrial() {
+    if (typeof window.fbq === "function") {
+        window.fbq("track", "StartTrial", { value: "0.00", currency: "USD", predicted_ltv: "0.00" });
+    }
+}
+
 /** Przyciski iOS/Android na /odbierz — wydają jednorazowy kod promocyjny przez /api/redeem-code
  * i przekierowują na link odbioru w App Store / Google Play. */
 export default function ClaimCodeButtons({ className = "" }: { className?: string }) {
@@ -41,6 +48,7 @@ export default function ClaimCodeButtons({ className = "" }: { className?: strin
             }
 
             trackClaim(platform, "success");
+            trackStartTrial();
             window.location.href = json.redeemUrl;
         } catch {
             setStatus((s) => ({ ...s, [platform]: "error" }));

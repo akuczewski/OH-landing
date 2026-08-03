@@ -18,12 +18,12 @@ const STEPS = [
     {
         number: "02",
         title: "Odbierz kod i podaj kartę",
-        description: "Nie zapłacisz nic przez pierwszy miesiąc.",
+        description: "Nie zapłacisz nic przez pierwszy miesiąc. Możesz anulować bezpłatnie w każdej chwili.",
     },
     {
         number: "03",
-        title: "Pobierz apkę i wpisz kod",
-        description: "Bądź gotowy na start wyzwania 10 sierpnia.",
+        title: "Pobierz apkę",
+        description: "Bądź gotowa na start wyzwania 10 sierpnia.",
     },
 ];
 

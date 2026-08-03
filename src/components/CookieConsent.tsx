@@ -23,31 +23,39 @@ export default function CookieConsent() {
     if (!visible) return null;
 
     return (
-        <div className="fixed bottom-4 inset-x-4 md:inset-x-auto md:right-6 md:bottom-6 md:max-w-md z-[60] bg-white rounded-[1.75rem] shadow-card ring-1 ring-black/[0.05] p-6">
-            <p className="text-sm text-text-dark/80 leading-relaxed mb-4">
-                Używamy plików cookie do analizy ruchu na stronie i pomiaru skuteczności reklam
-                (Google Analytics, Meta Pixel). Niezbędne cookies są zawsze aktywne. Więcej w{" "}
-                <Link href="/cookies" className="underline hover:text-primary-green">
-                    Polityce Cookies
-                </Link>
-                .
-            </p>
-            <div className="flex gap-3">
-                <button
-                    type="button"
-                    onClick={() => decide("accepted")}
-                    className="flex-1 bg-primary-green text-cream px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-secondary-green transition-colors duration-300"
-                >
-                    Akceptuj wszystkie
-                </button>
-                <button
-                    type="button"
-                    onClick={() => decide("rejected")}
-                    className="flex-1 bg-transparent border border-primary-green/30 text-primary-green px-5 py-2.5 rounded-full text-sm font-semibold hover:border-primary-green transition-colors duration-300"
-                >
-                    Odrzuć
-                </button>
+        <>
+            {/* Przyciemnienie tylko wizualne (pointer-events-none) — strona pod spodem zostaje
+                w pełni klikalna/scrollowalna. Zgoda musi być swobodnie wyrażona (RODO), więc
+                to NIE jest blokujący "cookie wall": to tylko duży, trudny do przeoczenia modal. */}
+            <div className="fixed inset-0 z-[55] bg-text-dark/40 pointer-events-none" aria-hidden="true" />
+            <div className="fixed inset-0 z-[60] flex items-center justify-center p-4 pointer-events-none">
+                <div className="pointer-events-auto max-w-md w-full bg-white rounded-[1.75rem] shadow-card ring-1 ring-black/[0.05] p-7">
+                    <p className="text-sm text-text-dark/80 leading-relaxed mb-5">
+                        Używamy plików cookie do analizy ruchu na stronie i pomiaru skuteczności reklam
+                        (Google Analytics, Meta Pixel). Niezbędne cookies są zawsze aktywne. Więcej w{" "}
+                        <Link href="/cookies" className="underline hover:text-primary-green">
+                            Polityce Cookies
+                        </Link>
+                        .
+                    </p>
+                    <div className="flex gap-3">
+                        <button
+                            type="button"
+                            onClick={() => decide("accepted")}
+                            className="flex-1 bg-primary-green text-cream px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-secondary-green transition-colors duration-300"
+                        >
+                            Akceptuj wszystkie
+                        </button>
+                        <button
+                            type="button"
+                            onClick={() => decide("rejected")}
+                            className="flex-1 bg-transparent border border-primary-green/30 text-primary-green px-5 py-2.5 rounded-full text-sm font-semibold hover:border-primary-green transition-colors duration-300"
+                        >
+                            Odrzuć
+                        </button>
+                    </div>
+                </div>
             </div>
-        </div>
+        </>
     );
 }

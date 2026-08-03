@@ -63,19 +63,19 @@ export default function ClaimCodeButtons({ className = "" }: { className?: strin
                     type="button"
                     disabled={isBusy}
                     onClick={() => handleClaim("ios")}
-                    className="inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-full text-base font-bold shadow-soft hover:shadow-card transition-all duration-300 active:scale-[0.98] bg-text-dark text-cream disabled:opacity-60 disabled:cursor-not-allowed"
+                    className="group inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-full text-base font-bold shadow-soft hover:shadow-card hover:brightness-95 hover:-translate-y-0.5 transition-all duration-300 active:scale-[0.98] active:translate-y-0 bg-accent-pink text-primary-green disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:translate-y-0"
                 >
-                    <AppleIcon className="w-5 h-5" />
-                    {status.ios === "loading" ? "Generuję kod…" : "Odbierz na iOS"}
+                    <AppleIcon className="w-5 h-5 transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6" />
+                    {status.ios === "loading" ? "Generuję kod…" : "Odbieram kod iOS"}
                 </button>
                 <button
                     type="button"
                     disabled={isBusy}
                     onClick={() => handleClaim("android")}
-                    className="inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-full text-base font-bold shadow-soft hover:shadow-card transition-all duration-300 active:scale-[0.98] bg-text-dark text-cream disabled:opacity-60 disabled:cursor-not-allowed"
+                    className="group inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-full text-base font-bold shadow-soft hover:shadow-card hover:brightness-95 hover:-translate-y-0.5 transition-all duration-300 active:scale-[0.98] active:translate-y-0 bg-accent-pink text-primary-green disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:translate-y-0"
                 >
-                    <AndroidIcon className="w-5 h-5" />
-                    {status.android === "loading" ? "Generuję kod…" : "Odbierz na Androida"}
+                    <AndroidIcon className="w-5 h-5 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6" />
+                    {status.android === "loading" ? "Generuję kod…" : "Odbieram kod Android"}
                 </button>
             </div>
 

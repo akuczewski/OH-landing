@@ -58,13 +58,28 @@ export default function Footer() {
                     &copy; {new Date().getFullYear()} OH! Club. Wszelkie prawa zastrzeżone.
                 </p>
                 <div className="flex gap-4">
-                    <a href="#" className="w-10 h-10 rounded-full bg-light-cream/10 flex items-center justify-center hover:bg-accent-pink hover:text-primary-green transition-all">
+                    <a
+                        href="https://www.instagram.com/ohclub_pl/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-10 h-10 rounded-full bg-light-cream/10 flex items-center justify-center hover:bg-accent-pink hover:text-primary-green transition-all"
+                    >
                         IG
                     </a>
-                    <a href="#" className="w-10 h-10 rounded-full bg-light-cream/10 flex items-center justify-center hover:bg-accent-pink hover:text-primary-green transition-all">
+                    <a
+                        href="https://www.facebook.com/ohclubapp"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-10 h-10 rounded-full bg-light-cream/10 flex items-center justify-center hover:bg-accent-pink hover:text-primary-green transition-all"
+                    >
                         FB
                     </a>
-                    <a href="#" className="w-10 h-10 rounded-full bg-light-cream/10 flex items-center justify-center hover:bg-accent-pink hover:text-primary-green transition-all">
+                    <a
+                        href="https://www.tiktok.com/@oh.club"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-10 h-10 rounded-full bg-light-cream/10 flex items-center justify-center hover:bg-accent-pink hover:text-primary-green transition-all"
+                    >
                         TT
                     </a>
                 </div>

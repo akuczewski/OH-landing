@@ -16,6 +16,7 @@ const plans = [
             "Wymiana nawyku programu (1×/mies.)",
             "Baza wiedzy (3 artykuły/mies.)",
             "Rekomendowany trening i rytuał fazowy",
+            "Co miesiąc 30% rabatu na nasiona Balancea",
         ],
         highlighted: false,
     },

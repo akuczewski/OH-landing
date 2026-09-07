@@ -45,21 +45,29 @@ export default function NutritionSection() {
                 {/* Stack telefonów + 4 bloki */}
                 <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
                     <Reveal className="lg:sticky lg:top-28">
-                        <div className="relative mx-auto max-w-md lg:max-w-none h-[420px] md:h-[560px]">
+                        {/* mobile: pojedynczy telefon w normalnym flow (żeby nie zasłaniał tekstu) */}
+                        <img
+                            src="/start/phone-2.png"
+                            alt="Widok jadłospisu w aplikacji OH! Club"
+                            className="md:hidden mx-auto w-[68%] max-w-[280px] rounded-[1.75rem] shadow-2xl ring-1 ring-black/5"
+                        />
+                        {/* md+: stack trzech telefonów pod kątem */}
+                        <div className="hidden md:block relative mx-auto max-w-md lg:max-w-none h-[560px]">
                             <img
                                 src="/start/phone-1.png"
                                 alt="Widok przepisu w aplikacji OH! Club"
-                                className="hidden md:block absolute left-0 top-12 w-[52%] rounded-[1.75rem] shadow-2xl ring-1 ring-black/5 -rotate-6"
+                                className="absolute left-0 top-12 w-[52%] rounded-[1.75rem] shadow-2xl ring-1 ring-black/5 -rotate-6"
                             />
                             <img
                                 src="/start/phone-2.png"
-                                alt="Widok jadłospisu w aplikacji OH! Club"
-                                className="absolute left-1/2 -translate-x-1/2 md:left-1/2 top-0 w-[80%] md:w-[54%] rounded-[1.75rem] shadow-2xl ring-1 ring-black/5 z-10"
+                                alt=""
+                                aria-hidden="true"
+                                className="absolute left-1/2 -translate-x-1/2 top-0 w-[54%] rounded-[1.75rem] shadow-2xl ring-1 ring-black/5 z-10"
                             />
                             <img
                                 src="/start/phone-3.png"
                                 alt="Widok w aplikacji OH! Club"
-                                className="hidden md:block absolute right-0 top-12 w-[52%] rounded-[1.75rem] shadow-2xl ring-1 ring-black/5 rotate-6"
+                                className="absolute right-0 top-12 w-[52%] rounded-[1.75rem] shadow-2xl ring-1 ring-black/5 rotate-6"
                             />
                         </div>
                     </Reveal>

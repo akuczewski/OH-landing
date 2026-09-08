@@ -46,8 +46,7 @@ export default function Footer() {
                 <div>
                     <h3 className="font-serif text-xl font-bold mb-6 text-accent-yellow">Prawne</h3>
                     <ul className="space-y-4 text-sm font-medium">
-                        <li><Link href="/regulamin" className="hover:text-accent-pink transition-colors">Regulamin</Link></li>
-                        <li><Link href="/polityka-prywatnosci" className="hover:text-accent-pink transition-colors">Polityka Prywatności</Link></li>
+                        <li><Link href="/polityka-prywatnosci" className="hover:text-accent-pink transition-colors">Regulamin i prywatność</Link></li>
                         <li><Link href="/cookies" className="hover:text-accent-pink transition-colors">Polityka Cookies</Link></li>
                     </ul>
                 </div>

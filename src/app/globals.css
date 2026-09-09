@@ -137,3 +137,182 @@ p {
     animation: none;
   }
 }
+
+/* ============================================================
+   Kampania /start — choreografia ruchu
+   Wejścia sekcji: ScrollReveal.tsx (IntersectionObserver) dokłada
+   klasę `sr-in`. Świadomie NIE używamy `animation-timeline: view()`
+   — `overflow-hidden` na sekcjach robi z nich scroll-containery
+   i psuje ten timeline. Dekoracje (Ken Burns, float, poświata,
+   parallax hero przez scroll(root)) to czyste CSS.
+   Wyłącznie transform/opacity/filter (GPU). Wygaszane przy
+   prefers-reduced-motion (blok na końcu pliku).
+   ============================================================ */
+
+:root {
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+/* — Wejście: cięższy fade-up z rozmyciem — */
+@keyframes sr-rise {
+  from {
+    opacity: 0;
+    transform: translateY(2.4rem);
+    filter: blur(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+.sr {
+  opacity: 0;
+}
+
+.sr.sr-in {
+  animation: sr-rise 1000ms var(--ease-out-expo) var(--sr-delay, 0ms) both;
+}
+
+/* — Nagłówek: maska wipe-up — */
+@keyframes mask-wipe {
+  from {
+    opacity: 0;
+    clip-path: inset(0 0 105% 0);
+    transform: translateY(0.5rem);
+  }
+  to {
+    opacity: 1;
+    clip-path: inset(0 0 -12% 0);
+    transform: translateY(0);
+  }
+}
+
+.mask-wipe {
+  opacity: 0;
+}
+
+.mask-wipe.sr-in {
+  animation: mask-wipe 1100ms var(--ease-spring) var(--sr-delay, 0ms) both;
+}
+
+/* — Hero: Ken Burns (pętla) + parallax sprzężony ze scrollem — */
+@keyframes ken-burns {
+  from {
+    transform: scale(1.03);
+  }
+  to {
+    transform: scale(1.1) translate3d(-1.5%, -1%, 0);
+  }
+}
+
+.ken-burns {
+  animation: ken-burns 22s var(--ease-spring) infinite alternate;
+  will-change: transform;
+}
+
+@supports (animation-timeline: scroll()) {
+  @keyframes hero-parallax {
+    to {
+      transform: translateY(7%);
+    }
+  }
+
+  .hero-parallax {
+    animation: hero-parallax linear both;
+    animation-timeline: scroll(root);
+    animation-range: 0 90vh;
+    will-change: transform;
+  }
+}
+
+/* — Delikatny, nieskończony float (stack telefonów) — */
+@keyframes float-y {
+  from {
+    transform: translateY(-0.5rem);
+  }
+  to {
+    transform: translateY(0.5rem);
+  }
+}
+
+.float-y {
+  animation: float-y 6s ease-in-out infinite alternate;
+  animation-delay: var(--float-delay, 0ms);
+  will-change: transform;
+}
+
+/* — Ambient: wolno dryfująca poświata za sekcjami — */
+@keyframes aura-drift {
+  from {
+    transform: translate3d(-6%, -3%, 0) scale(1);
+  }
+  to {
+    transform: translate3d(6%, 4%, 0) scale(1.18);
+  }
+}
+
+.aura {
+  position: absolute;
+  pointer-events: none;
+  border-radius: 999px;
+  filter: blur(70px);
+  opacity: 0.55;
+  animation: aura-drift 34s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+/* — Wskazówka scrolla w hero — */
+@keyframes scroll-cue {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.45;
+  }
+  50% {
+    transform: translateY(7px);
+    opacity: 1;
+  }
+}
+
+.scroll-cue {
+  animation: scroll-cue 2.4s ease-in-out infinite;
+}
+
+/* wariant `.enter` z maską wipe-up — dla treści widocznej od pierwszego kadru (hero) */
+.enter-wipe {
+  animation: mask-wipe 1100ms var(--ease-spring) both;
+  animation-delay: var(--enter-delay, 0ms);
+}
+
+/* Bez JS (i zanim ScrollReveal się zhydruje na wolnym łączu) — pokaż treść. */
+@media (scripting: none) {
+  .sr,
+  .mask-wipe {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sr,
+  .mask-wipe {
+    opacity: 1;
+  }
+  .sr.sr-in,
+  .mask-wipe.sr-in,
+  .enter-wipe,
+  .ken-burns,
+  .hero-parallax,
+  .float-y,
+  .aura,
+  .scroll-cue {
+    animation: none;
+    clip-path: none;
+    transform: none;
+  }
+  .enter-wipe {
+    opacity: 1;
+  }
+}

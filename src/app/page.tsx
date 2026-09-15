@@ -2,6 +2,7 @@ import Footer from "@/components/Footer";
 import FounderStory from "@/components/FounderStory";
 import Hero from "@/components/Hero";
 import HowItHelps from "@/components/HowItHelps";
+import JoinCtaBand from "@/components/JoinCtaBand";
 import MarqueeTicker from "@/components/MarqueeTicker";
 import Navbar from "@/components/Navbar";
 import SignalsSection from "@/components/SignalsSection";
@@ -26,6 +27,7 @@ export default function Home() {
           <HowItHelps />
           <Testimonials />
         </div>
+        <JoinCtaBand />
       </main>
 
       <Footer />

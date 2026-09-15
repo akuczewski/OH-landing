@@ -51,10 +51,10 @@ export default function MagneticButton({
             href={href}
             onPointerMove={onMove}
             onPointerLeave={reset}
-            className={`group inline-flex items-center gap-3 rounded-full bg-primary-green py-3 pl-7 pr-3 text-base font-bold text-light-cream shadow-soft transition-[transform,background-color,box-shadow] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-secondary-green hover:shadow-card active:scale-[0.97] ${className}`}
+            className={`group inline-flex items-center gap-3 rounded-full bg-accent-pink py-3 pl-7 pr-3 text-base font-bold text-primary-green shadow-soft transition-[transform,filter,box-shadow] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:brightness-95 hover:shadow-card active:scale-[0.97] ${className}`}
         >
             <span>{children}</span>
-            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-light-cream/15 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:scale-105">
+            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-primary-green/10 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:scale-105">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                     <path
                         d="M7 17 17 7M9 7h8v8"

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import SocialLinks from "./SocialLinks";
 
 export default function Footer() {
     return (
@@ -29,7 +30,7 @@ export default function Footer() {
                         <li><Link href="/aplikacja" className="hover:text-accent-pink transition-colors">Aplikacja</Link></li>
                         <li><Link href="/tworcy" className="hover:text-accent-pink transition-colors">Twórcy treści</Link></li>
                         <li><Link href="/cennik" className="hover:text-accent-pink transition-colors">Cennik</Link></li>
-                        <li><Link href="/opinie" className="hover:text-accent-pink transition-colors">Opinie użytkowniczek</Link></li>
+                        {/* Opinie użytkowniczek: ukryte do czasu, aż będzie ich więcej (§1 zgłoszenia). */}
                         <li><Link href="/pobierz" className="hover:text-accent-pink transition-colors">Pobierz aplikację</Link></li>
                     </ul>
                 </div>
@@ -37,7 +38,7 @@ export default function Footer() {
                 <div>
                     <h3 className="font-serif text-xl font-bold mb-6 text-accent-yellow">Firma</h3>
                     <ul className="space-y-4 text-sm font-medium">
-                        <li><Link href="/o-nas" className="hover:text-accent-pink transition-colors">O nas</Link></li>
+                        {/* O nas: ukryte na razie (§1 zgłoszenia). */}
                         <li><Link href="/kontakt" className="hover:text-accent-pink transition-colors">Kontakt</Link></li>
                         <li><Link href="/media" className="hover:text-accent-pink transition-colors">Dla mediów</Link></li>
                     </ul>
@@ -56,32 +57,7 @@ export default function Footer() {
                 <p className="text-xs text-light-cream/60 font-medium">
                     &copy; {new Date().getFullYear()} OH! Club. Wszelkie prawa zastrzeżone.
                 </p>
-                <div className="flex gap-4">
-                    <a
-                        href="https://www.instagram.com/ohclub_pl/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-10 h-10 rounded-full bg-light-cream/10 flex items-center justify-center hover:bg-accent-pink hover:text-primary-green transition-all"
-                    >
-                        IG
-                    </a>
-                    <a
-                        href="https://www.facebook.com/ohclubapp"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-10 h-10 rounded-full bg-light-cream/10 flex items-center justify-center hover:bg-accent-pink hover:text-primary-green transition-all"
-                    >
-                        FB
-                    </a>
-                    <a
-                        href="https://www.tiktok.com/@oh.club"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-10 h-10 rounded-full bg-light-cream/10 flex items-center justify-center hover:bg-accent-pink hover:text-primary-green transition-all"
-                    >
-                        TT
-                    </a>
-                </div>
+                <SocialLinks variant="dark" />
             </div>
         </footer>
     );

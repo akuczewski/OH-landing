@@ -40,7 +40,7 @@ export default function WhyStuckSection() {
                         {factors.map((factor) => (
                             <span
                                 key={factor}
-                                className="bg-white px-5 py-3 rounded-full text-text-dark/80 font-semibold shadow-sm ring-1 ring-black/[0.03] hover:ring-secondary-green/40 hover:-translate-y-0.5 transition-all duration-300"
+                                className="bg-accent-pink/40 px-5 py-3 rounded-full text-primary-green font-semibold shadow-sm ring-1 ring-accent-pink/60 hover:bg-accent-pink/60 hover:-translate-y-0.5 transition-all duration-300"
                             >
                                 {factor}
                             </span>

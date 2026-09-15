@@ -60,14 +60,21 @@ export default function HowItHelps() {
                         </div>
 
                         {/* Drugie wystąpienie realnego zrzutu apki — przypomnienie tuż przed
-                            CTA, że to działający produkt, nie makieta. */}
-                        <div className="self-start shrink-0 p-2 rounded-[1.75rem] bg-text-dark/95 shadow-card rotate-2">
-                            <div className="w-32 h-56 rounded-[1.4rem] overflow-hidden">
-                                <img
-                                    src="/screenshots/nawyki_v2.png"
-                                    alt="Zrzut ekranu aplikacji OH! Club, lista nawyków"
-                                    className="w-full h-full object-cover object-top"
-                                />
+                            CTA, że to działający produkt, nie makieta. Ten sam "doppelbezel"
+                            co w Hero (gruba ciemna obudowa + notch + prawidłowe proporcje
+                            ekranu 1179×2556), tylko w mniejszej skali — poprzednia wersja miała
+                            box o innych proporcjach niż realny zrzut, więc obraz był brzydko
+                            docinany przez object-cover. */}
+                        <div className="mx-auto md:mx-0 shrink-0 relative rotate-3">
+                            <div className="p-2 rounded-[2rem] bg-text-dark/95 shadow-card ring-1 ring-black/5">
+                                <div className="relative w-40 md:w-44 aspect-[1179/2556] bg-light-cream rounded-[1.6rem] overflow-hidden shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)]">
+                                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-14 h-3.5 bg-text-dark rounded-b-lg z-20" />
+                                    <img
+                                        src="/screenshots/nawyki_v2.png"
+                                        alt="Zrzut ekranu aplikacji OH! Club, lista nawyków"
+                                        className="w-full h-full object-cover object-top"
+                                    />
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -18,6 +18,9 @@ export default function Navbar() {
                     </span>
                 </Link>
                 <nav className="hidden md:flex gap-7 text-sm font-semibold tracking-wide">
+                    <Link href="/" className="hover:text-primary-green transition-colors text-text-dark/80 hover:text-text-dark">
+                        Home
+                    </Link>
                     <Link href="/aplikacja" className="hover:text-primary-green transition-colors text-text-dark/80 hover:text-text-dark">
                         Aplikacja
                     </Link>
@@ -31,7 +34,7 @@ export default function Navbar() {
                 <div className="flex items-center gap-4">
                     <Link
                         href="/pobierz"
-                        className="bg-primary-green text-light-cream px-5 md:px-6 py-2.5 rounded-full text-sm font-semibold hover:bg-secondary-green transition-all duration-300 shadow-sm hover:shadow-md active:scale-[0.98]"
+                        className="bg-accent-pink text-primary-green px-5 md:px-6 py-2.5 rounded-full text-sm font-semibold hover:brightness-95 transition-all duration-300 shadow-sm hover:shadow-md active:scale-[0.98]"
                     >
                         Pobierz aplikację
                     </Link>

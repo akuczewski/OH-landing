@@ -38,7 +38,7 @@ export default async function FounderStory() {
 
                     <div>
                         <Reveal>
-                            <Eyebrow>Historia OH! Club</Eyebrow>
+                            <Eyebrow>Historia założycielki OH! Club</Eyebrow>
                         </Reveal>
                         <Reveal delayMs={100}>
                             <h2 className="font-serif text-3xl md:text-[2.75rem] text-primary-green font-bold mt-5 mb-7 leading-[1.15] tracking-tight">
@@ -64,7 +64,7 @@ export default async function FounderStory() {
                         </Reveal>
                         <Reveal delayMs={260}>
                             <p className="font-serif text-xl text-primary-green italic mt-6 pl-6">
-                                Klaudia, założycielka OH! Club
+                                Klaudia, dietetyczka kliniczna
                             </p>
                         </Reveal>
                     </div>

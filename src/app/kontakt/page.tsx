@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+import SocialLinks from "@/components/SocialLinks";
 import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -21,7 +22,17 @@ export default function Contact() {
                     <a href={`mailto:${SITE.contactEmail}`} className="text-primary-green hover:underline">{SITE.contactEmail}</a>
 
                     <p className="font-bold text-xl mb-2 mt-8">Media społecznościowe</p>
-                    <p className="text-text-dark/70">Odwiedź nasze profile na Instagramie i TikToku, aby być na bieżąco!</p>
+                    <p className="text-text-dark/70 mb-4">Odwiedź nasze profile na Instagramie, Facebooku i TikToku, aby być na bieżąco!</p>
+                    <SocialLinks variant="light" />
+
+                    <p className="font-bold text-xl mb-2 mt-8">Dane spółki</p>
+                    <div className="text-text-dark/70 leading-relaxed">
+                        <p>{SITE.legalEntity.name}</p>
+                        <p>{SITE.legalEntity.address}</p>
+                        <p>KRS: {SITE.legalEntity.krs}</p>
+                        <p>NIP: {SITE.legalEntity.nip}</p>
+                        <p>REGON: {SITE.legalEntity.regon}</p>
+                    </div>
                 </div>
             </main>
             <Footer />

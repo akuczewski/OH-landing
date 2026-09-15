@@ -18,7 +18,7 @@ export default function Hero() {
                     </div>
 
                     <h1
-                        className="enter font-serif text-4xl md:text-5xl lg:text-6xl mt-6 mb-7 text-primary-green leading-[1.15] tracking-tight"
+                        className="enter font-serif font-bold text-3xl md:text-4xl lg:text-5xl mt-6 mb-7 text-accent-pink-deep leading-[1.15] tracking-tight"
                         style={{ "--enter-delay": "120ms" } as React.CSSProperties}
                     >
                         Chcesz odzyskać równowagę hormonalną bez zgadywania i rygorystycznych diet?
@@ -33,10 +33,17 @@ export default function Hero() {
                         aktualnej fazy Twojego cyklu.
                     </p>
 
-                    <div className="enter w-full flex flex-col items-center lg:items-start gap-3" style={{ "--enter-delay": "320ms" } as React.CSSProperties}>
+                    <div className="enter w-full flex flex-col items-center lg:items-start gap-3" style={{ "--enter-delay": "300ms" } as React.CSSProperties}>
+                        {/* Trudny do przeoczenia bezpłatny okres próbny — bezpośrednio nad
+                            głównym CTA. Celowo NIE jak przycisk (inny kształt, wersaliki,
+                            lżejsze tło), żeby nie konkurował wizualnie z prawdziwym CTA niżej. */}
+                        <span className="inline-flex items-center gap-2 bg-accent-pink/30 text-accent-pink-deep font-bold text-xs md:text-sm uppercase tracking-[0.12em] px-4 py-2 rounded-md mb-1">
+                            <span className="w-1.5 h-1.5 rounded-full bg-accent-pink-deep shrink-0" />
+                            Odbierz 7 dni za darmo
+                        </span>
                         <Link
                             href="/pobierz"
-                            className="inline-flex items-center justify-center px-8 py-4 rounded-full text-base font-bold bg-primary-green text-light-cream shadow-soft hover:bg-secondary-green hover:shadow-card transition-all duration-300 active:scale-[0.98]"
+                            className="inline-flex items-center justify-center px-8 py-4 rounded-full text-base font-bold bg-accent-pink text-primary-green shadow-soft hover:brightness-95 hover:shadow-card transition-all duration-300 active:scale-[0.98]"
                         >
                             Pobierz aplikację i wypełnij quiz
                         </Link>

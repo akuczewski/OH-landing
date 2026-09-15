@@ -140,7 +140,7 @@ export default function PricingCards() {
                                 className={`text-center px-6 py-3 rounded-full text-sm font-bold transition-all duration-300 ${
                                     plan.highlighted
                                         ? "bg-cream text-primary-green hover:bg-white"
-                                        : "bg-primary-green text-cream hover:bg-secondary-green"
+                                        : "bg-accent-pink text-primary-green hover:brightness-95"
                                 }`}
                             >
                                 Pobierz aplikację

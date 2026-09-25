@@ -151,7 +151,7 @@ export default function PricingCards() {
             </div>
 
             <p className="text-center text-sm text-text-dark/50 italic mt-12">
-                Subskrypcję aktywujesz i zarządzasz nią w aplikacji, po zalogowaniu.
+                Subskrypcję aktywujesz i zarządzasz nią w aplikacji, po zalogowaniu. Ceny brutto (zawierają VAT).
             </p>
         </div>
     );

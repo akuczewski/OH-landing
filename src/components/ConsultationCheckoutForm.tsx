@@ -121,6 +121,7 @@ export default function ConsultationCheckoutForm({ experts }: { experts: Expert[
                     </label>
                 ))}
             </fieldset>
+            <p className="text-xs text-text-dark/45 px-1 -mt-3">Ceny brutto (zawierają VAT).</p>
 
             {selected?.description && (
                 <p className="text-sm text-text-dark/60 leading-relaxed px-1">{selected.description}</p>

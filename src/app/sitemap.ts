@@ -48,6 +48,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
             priority: 0.5,
         },
         {
+            url: `${baseUrl}/konsultacje`,
+            lastModified: new Date(),
+            changeFrequency: 'monthly',
+            priority: 0.6,
+        },
+        {
             // /regulamin renderuje ten sam dokument i ma canonical → /polityka-prywatnosci,
             // więc w sitemapie zostaje tylko wersja kanoniczna.
             url: `${baseUrl}/polityka-prywatnosci`,

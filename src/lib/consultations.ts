@@ -71,6 +71,37 @@ export async function getExperts(): Promise<Expert[]> {
     }
 }
 
+export type CodeCheckResult =
+    | { valid: true; discountPercent: number }
+    | { valid: false };
+
+/**
+ * Sprawdza kod rabatowy BEZ tworzenia zamówienia (czysty podgląd dla UI —
+ * pokazanie realnej kwoty przed submitem). Źródłem prawdy dla finalnej ceny
+ * i tak zawsze zostaje `createPendingOrder`, ten check nigdy nie jest ufany
+ * przy obciążaniu karty.
+ */
+export async function checkConsultationCode(code: string): Promise<CodeCheckResult> {
+    const trimmed = code.trim().toUpperCase();
+    if (!trimmed || !CONSULTATION_TOKEN) return { valid: false };
+    try {
+        const res = await fetch(
+            `${STRAPI_URL}/api/consultation-codes?filters[code][$eq]=${encodeURIComponent(trimmed)}`,
+            {
+                headers: { Authorization: `Bearer ${CONSULTATION_TOKEN}` },
+                cache: "no-store",
+            }
+        );
+        if (!res.ok) return { valid: false };
+        const json = await res.json();
+        const entry = json?.data?.[0];
+        if (!entry || entry.redeemedAt) return { valid: false };
+        return { valid: true, discountPercent: entry.discountPercent ?? 0 };
+    } catch {
+        return { valid: false };
+    }
+}
+
 export type CreatePendingResult =
     | { ok: true; orderId: string; priceGrosze: number }
     | { ok: false; error: string; status: number };

@@ -43,9 +43,48 @@ export default function ConsultationCheckoutForm({ experts }: { experts: Expert[
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
 
+    // Podgląd rabatu przed submitem — "Wczytaj" przy polu kodu. Przechowuje KOD,
+    // dla którego % jest ważny, żeby edycja pola po sprawdzeniu unieważniała podgląd
+    // (finalna walidacja i tak zawsze liczy się od nowa server-side przy płatności).
+    const [appliedDiscount, setAppliedDiscount] = useState<{ code: string; percent: number } | null>(null);
+    const [codeChecking, setCodeChecking] = useState(false);
+    const [codeInvalid, setCodeInvalid] = useState(false);
+
     const selected = useMemo(() => experts.find((e) => e.id === expertId), [experts, expertId]);
     const emailValid = /.+@.+\..+/.test(email.trim());
     const canSubmit = !!expertId && emailValid && consent && !loading;
+
+    const normalizedCode = code.trim().toUpperCase();
+    const activeDiscountPercent =
+        appliedDiscount && appliedDiscount.code === normalizedCode ? appliedDiscount.percent : 0;
+    const displayPriceGrosze = selected
+        ? Math.round((selected.priceGrosze * (100 - activeDiscountPercent)) / 100)
+        : 0;
+
+    async function handleCheckCode() {
+        if (!normalizedCode || codeChecking) return;
+        setCodeChecking(true);
+        setCodeInvalid(false);
+        try {
+            const res = await fetch("/api/consultation-code-check", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ code: normalizedCode }),
+            });
+            const json = await res.json();
+            if (json.valid) {
+                setAppliedDiscount({ code: normalizedCode, percent: json.discountPercent });
+            } else {
+                setAppliedDiscount(null);
+                setCodeInvalid(true);
+            }
+        } catch {
+            setAppliedDiscount(null);
+            setCodeInvalid(true);
+        } finally {
+            setCodeChecking(false);
+        }
+    }
 
     async function handleSubmit(e: React.FormEvent) {
         e.preventDefault();
@@ -153,17 +192,46 @@ export default function ConsultationCheckoutForm({ experts }: { experts: Expert[
                 <label htmlFor="code" className="block font-semibold text-text-dark mb-1.5">
                     Masz kod rabatowy? <span className="font-normal text-text-dark/50">(opcjonalnie)</span>
                 </label>
-                <input
-                    id="code"
-                    type="text"
-                    value={code}
-                    onChange={(e) => setCode(e.target.value.toUpperCase())}
-                    placeholder="KO-XXXXXX"
-                    className="w-full rounded-2xl bg-white px-4 py-3 ring-1 ring-black/[0.08] focus:ring-2 focus:ring-primary-green outline-none tracking-widest"
-                />
-                {code.trim() && (
+                <div className="flex gap-2">
+                    <input
+                        id="code"
+                        type="text"
+                        value={code}
+                        onChange={(e) => {
+                            setCode(e.target.value.toUpperCase());
+                            setCodeInvalid(false);
+                        }}
+                        onKeyDown={(e) => {
+                            if (e.key === "Enter") {
+                                e.preventDefault();
+                                handleCheckCode();
+                            }
+                        }}
+                        placeholder="KO-XXXXXX"
+                        className="flex-1 rounded-2xl bg-white px-4 py-3 ring-1 ring-black/[0.08] focus:ring-2 focus:ring-primary-green outline-none tracking-widest"
+                    />
+                    <button
+                        type="button"
+                        onClick={handleCheckCode}
+                        disabled={!normalizedCode || codeChecking}
+                        className="px-5 rounded-2xl bg-white ring-1 ring-black/[0.08] font-semibold text-sm text-text-dark hover:ring-primary-green/40 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                        {codeChecking ? "..." : "Wczytaj"}
+                    </button>
+                </div>
+                {activeDiscountPercent > 0 && (
+                    <p className="text-xs text-secondary-green font-semibold mt-1.5">
+                        Kod poprawny, rabat {activeDiscountPercent}% zastosowany.
+                    </p>
+                )}
+                {codeInvalid && (
+                    <p className="text-xs text-red-600 mt-1.5">
+                        Kod rabatowy jest nieprawidłowy albo już wykorzystany.
+                    </p>
+                )}
+                {!activeDiscountPercent && !codeInvalid && code.trim() && (
                     <p className="text-xs text-text-dark/50 mt-1.5">
-                        Rabat zostanie zastosowany przy płatności, jeśli kod jest poprawny.
+                        Kliknij „Wczytaj”, żeby sprawdzić kod przed płatnością.
                     </p>
                 )}
             </div>
@@ -189,7 +257,7 @@ export default function ConsultationCheckoutForm({ experts }: { experts: Expert[
                 {loading
                     ? "Przekierowuję do płatności…"
                     : selected
-                      ? `Zapłać ${formatPrice(selected.priceGrosze)}`
+                      ? `Zapłać ${formatPrice(displayPriceGrosze)}`
                       : "Zapłać"}
             </button>
 

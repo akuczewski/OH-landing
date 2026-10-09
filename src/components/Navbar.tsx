@@ -30,6 +30,9 @@ export default function Navbar() {
                     <Link href="/cennik" className="hover:text-primary-green transition-colors text-text-dark/80 hover:text-text-dark">
                         Cennik
                     </Link>
+                    <Link href="/konsultacje" className="hover:text-primary-green transition-colors text-text-dark/80 hover:text-text-dark">
+                        Konsultacje
+                    </Link>
                 </nav>
                 <div className="flex items-center gap-4">
                     <Link

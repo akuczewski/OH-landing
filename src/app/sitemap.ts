@@ -1,8 +1,11 @@
 import { MetadataRoute } from 'next';
 import { SITE } from '@/lib/site';
+import { expertPath } from '@/lib/consultationFormat';
+import { getExperts } from '@/lib/consultations';
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const baseUrl = SITE.url;
+    const experts = await getExperts();
 
     return [
         {
@@ -67,5 +70,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
             changeFrequency: 'yearly',
             priority: 0.3,
         },
+        ...experts.map((expert) => ({
+            url: `${baseUrl}${expertPath(expert)}`,
+            lastModified: new Date(),
+            changeFrequency: 'monthly' as const,
+            priority: 0.7,
+        })),
     ];
 }

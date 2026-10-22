@@ -3,72 +3,71 @@
 //
 // Kontrakt endpointów: patrz apps/cms/src/api/consultation-* i SPEC-konsultacje.md §14.2.
 
+import { mapStrapiExpert, type Expert, type StrapiExpertEntry } from "./consultationFormat";
+
 const STRAPI_URL = process.env.STRAPI_URL ?? "https://useful-sparkle-79935e08b6.strapiapp.com";
 // Do odczytu ekspertów wystarcza zwykły read-only token (jak creators);
 // do akcji zamówień potrzebny token z uprawnieniami do custom akcji.
 const READ_TOKEN = process.env.STRAPI_API_TOKEN ?? "";
 const CONSULTATION_TOKEN = process.env.STRAPI_CONSULTATION_TOKEN ?? "";
 
-export type Expert = {
-    id: string;
-    name: string;
-    title: string;
-    specialization: string;
-    description: string;
-    avatarEmoji: string;
-    photoUrl: string | null;
-    priceGrosze: number;
-};
-
-type StrapiExpertEntry = {
-    documentId: string;
-    name?: string;
-    title?: string;
-    specialization?: string;
-    description?: string;
-    avatarEmoji?: string;
-    photo?: { url?: string } | null;
-    priceGrosze?: number;
-    active?: boolean;
-};
+export type { Expert } from "./consultationFormat";
 
 function resolveMediaUrl(url?: string | null): string | null {
     if (!url) return null;
     return url.startsWith("http") ? url : `${STRAPI_URL}${url}`;
 }
 
-/**
- * Lista aktywnych ekspertów (ISR co 1h). Nie rzuca — [] na błąd (jak getCreators).
- */
-export async function getExperts(): Promise<Expert[]> {
+const EXPERT_POPULATE = "populate[photo]=true&populate[benefits]=true";
+// Format sprzed nowych pól (benefits, slug). Strapi bez nich zwraca 400 "Invalid key",
+// więc landing działa niezależnie od kolejności deployu CMS/landing.
+const LEGACY_POPULATE = "populate=photo";
+
+/** Wspólny odczyt aktywnych ekspertów (ISR co 1h). Nie rzuca, [] na błąd (jak getCreators). */
+async function fetchExperts(extraFilter = "", legacy = false): Promise<Expert[]> {
     try {
         const res = await fetch(
-            `${STRAPI_URL}/api/experts?populate=photo&filters[active][$eq]=true&sort=sortOrder:asc`,
+            `${STRAPI_URL}/api/experts?${legacy ? LEGACY_POPULATE : EXPERT_POPULATE}&filters[active][$eq]=true${extraFilter}&sort=sortOrder:asc`,
             {
                 headers: READ_TOKEN ? { Authorization: `Bearer ${READ_TOKEN}` } : {},
                 next: { revalidate: 3600 },
             }
         );
+        if (res.status === 400 && !legacy) {
+            // Filtr po slugu nie ma sensu bez pola slug → brak wyniku, wołający spróbuje documentId.
+            if (extraFilter.includes("[slug]")) return [];
+            return fetchExperts(extraFilter, true);
+        }
         if (!res.ok) {
             console.warn(`[Strapi] Experts fetch nie-OK: ${res.status}`);
             return [];
         }
         const json = await res.json();
         const entries: StrapiExpertEntry[] = json?.data ?? [];
-        return entries.map((e) => ({
-            id: e.documentId,
-            name: e.name ?? "",
-            title: e.title ?? "",
-            specialization: e.specialization ?? "",
-            description: e.description ?? "",
-            avatarEmoji: e.avatarEmoji ?? "",
-            photoUrl: resolveMediaUrl(e.photo?.url),
-            priceGrosze: e.priceGrosze ?? 24900,
-        }));
+        return entries.map((e) => mapStrapiExpert(e, resolveMediaUrl));
     } catch (error) {
         console.error("[Strapi] Experts fetch error:", error);
         return [];
     }
+}
+
+/** Lista aktywnych ekspertów. */
+export function getExperts(): Promise<Expert[]> {
+    return fetchExperts();
+}
+
+/** Aktywny ekspert po documentId (redirect z `?expertId=` i fallback URL bez sluga). */
+export async function getExpertById(documentId: string): Promise<Expert | null> {
+    if (!documentId) return null;
+    const list = await fetchExperts(`&filters[documentId][$eq]=${encodeURIComponent(documentId)}`);
+    return list[0] ?? null;
+}
+
+/** Aktywny ekspert po slugu; gdy brak, próbuje documentId (SPEC-new-consultations §5.1). */
+export async function getExpertBySlug(slug: string): Promise<Expert | null> {
+    if (!slug) return null;
+    const list = await fetchExperts(`&filters[slug][$eq]=${encodeURIComponent(slug)}`);
+    return list[0] ?? (await getExpertById(slug));
 }
 
 export type CodeCheckResult =

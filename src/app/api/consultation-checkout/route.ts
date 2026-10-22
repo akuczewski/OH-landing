@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { SITE } from "@/lib/site";
 import { getStripe } from "@/lib/stripe";
-import { createPendingOrder, getExperts } from "@/lib/consultations";
+import { createPendingOrder, getExpertById } from "@/lib/consultations";
 
 export const runtime = "nodejs";
 
@@ -34,8 +34,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Nazwa eksperta do opisu pozycji na Stripe (czytelne na paragonie).
-    const experts = await getExperts();
-    const expert = experts.find((e) => e.id === expertId);
+    const expert = await getExpertById(expertId);
     if (!expert) {
         return NextResponse.json({ error: "Wybrany ekspert jest niedostępny" }, { status: 400 });
     }
@@ -65,7 +64,8 @@ export async function POST(request: NextRequest) {
             metadata: { orderId: pending.orderId },
             payment_intent_data: { metadata: { orderId: pending.orderId } },
             success_url: `${SITE.url}/konsultacje/dziekujemy?session_id={CHECKOUT_SESSION_ID}&orderId=${pending.orderId}`,
-            cancel_url: `${SITE.url}/konsultacje?anulowano=1`,
+            // Redirect z /konsultacje?expertId= prowadzi z powrotem na stronę eksperta.
+            cancel_url: `${SITE.url}/konsultacje?expertId=${encodeURIComponent(expertId)}&anulowano=1`,
         });
 
         return NextResponse.json({ url: session.url });

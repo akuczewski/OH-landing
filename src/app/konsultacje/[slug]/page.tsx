@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 import { Suspense } from "react";
 import BenefitIcon from "@/components/BenefitIcon";
 import ExpertBooking, { ExpertBookingFallback } from "@/components/ExpertBooking";
@@ -41,8 +41,12 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
 
 export default async function ExpertPage({ params }: { params: Params }) {
     const { slug } = await params;
-    const expert = await getExpertBySlug(decodeURIComponent(slug));
+    const requested = decodeURIComponent(slug);
+    const expert = await getExpertBySlug(requested);
     if (!expert) notFound();
+    // Wejście po documentId, a ekspert ma już slug w CMS → 308 na ładny, kanoniczny URL
+    // (stare linki z ID dalej działają, ale nie dublują strony).
+    if (expert.slug && requested !== expert.slug) permanentRedirect(expertPath(expert));
 
     const chips = [
         expert.durationMinutes ? `${expert.durationMinutes} minut` : null,

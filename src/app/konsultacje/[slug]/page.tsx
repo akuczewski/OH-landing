@@ -47,7 +47,7 @@ export default async function ExpertPage({ params }: { params: Params }) {
     const chips = [
         expert.durationMinutes ? `${expert.durationMinutes} minut` : null,
         "Online",
-        "Termin wybierasz sam",
+        "Termin wybierasz sama",
     ].filter(Boolean) as string[];
 
     const jsonLd = {

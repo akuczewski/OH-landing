@@ -11,7 +11,7 @@ import { expertHeading, expertPath, formatPrice } from "@/lib/consultationFormat
 import { getExpertBySlug, getExperts } from "@/lib/consultations";
 import { SITE } from "@/lib/site";
 
-export const revalidate = 3600;
+export const revalidate = 300;
 export const dynamicParams = true;
 
 type Params = Promise<{ slug: string }>;

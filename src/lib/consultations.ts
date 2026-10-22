@@ -23,14 +23,15 @@ const EXPERT_POPULATE = "populate[photo]=true&populate[benefits]=true";
 // więc landing działa niezależnie od kolejności deployu CMS/landing.
 const LEGACY_POPULATE = "populate=photo";
 
-/** Wspólny odczyt aktywnych ekspertów (ISR co 1h). Nie rzuca, [] na błąd (jak getCreators). */
+/** Wspólny odczyt aktywnych ekspertów (cache 5 min, by zmiany w CMS, np. slug, szybko
+ *  trafiały na listę). Nie rzuca, [] na błąd (jak getCreators). */
 async function fetchExperts(extraFilter = "", legacy = false): Promise<Expert[]> {
     try {
         const res = await fetch(
             `${STRAPI_URL}/api/experts?${legacy ? LEGACY_POPULATE : EXPERT_POPULATE}&filters[active][$eq]=true${extraFilter}&sort=sortOrder:asc`,
             {
                 headers: READ_TOKEN ? { Authorization: `Bearer ${READ_TOKEN}` } : {},
-                next: { revalidate: 3600 },
+                next: { revalidate: 300 },
             }
         );
         if (res.status === 400 && !legacy) {

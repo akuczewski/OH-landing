@@ -30,6 +30,7 @@ export default function Footer() {
                         <li><Link href="/aplikacja" className="hover:text-accent-pink transition-colors">Aplikacja</Link></li>
                         <li><Link href="/tworcy" className="hover:text-accent-pink transition-colors">Twórcy treści</Link></li>
                         <li><Link href="/cennik" className="hover:text-accent-pink transition-colors">Cennik</Link></li>
+                        <li><Link href="/konsultacje" className="hover:text-accent-pink transition-colors">Konsultacje</Link></li>
                         {/* Opinie użytkowniczek: ukryte do czasu, aż będzie ich więcej (§1 zgłoszenia). */}
                         <li><Link href="/pobierz" className="hover:text-accent-pink transition-colors">Pobierz aplikację</Link></li>
                     </ul>

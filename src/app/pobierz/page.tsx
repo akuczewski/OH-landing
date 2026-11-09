@@ -3,7 +3,6 @@ import Image from "next/image";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import StoreBadges from "@/components/StoreBadges";
-import { getCreators } from "@/lib/strapi";
 
 export const metadata: Metadata = {
     title: "Pobierz aplikację",
@@ -47,10 +46,7 @@ function Arrow() {
     );
 }
 
-export default async function Download() {
-    const creators = await getCreators();
-    const klaudia = creators.find((c) => c.name.toLowerCase().includes("klaudia"));
-
+export default function Download() {
     return (
         <div className="min-h-screen bg-cream text-text-dark font-sans selection:bg-accent-pink selection:text-text-dark">
             <Navbar />
@@ -114,11 +110,8 @@ export default async function Download() {
 
                             <div className="absolute right-0 bottom-0 flex items-center gap-3.5 rounded-3xl bg-white pl-3 pr-5 py-3 shadow-card ring-1 ring-black/5 max-w-[17rem]">
                                 <div className="w-12 h-12 shrink-0 rounded-full overflow-hidden bg-accent-pink/40">
-                                    {klaudia?.imageUrl ? (
-                                        <Image src={klaudia.imageUrl} alt="Klaudia Kubrak" width={96} height={96} className="w-full h-full object-cover object-top" />
-                                    ) : (
-                                        <span className="w-full h-full flex items-center justify-center font-serif text-xl text-primary-green">K</span>
-                                    )}
+                                    {/* Stały plik zamiast zdjęcia z CMS — strona nie zależy od dostępności Strapi. */}
+                                    <Image src="/pobierz/klaudia.jpg" alt="Klaudia Kubrak" width={96} height={96} className="w-full h-full object-cover" />
                                 </div>
                                 <p className="text-sm leading-snug text-text-dark/80">
                                     Stworzone przez dietetyk kliniczną <strong className="text-text-dark">Klaudię Kubrak</strong>
@@ -128,7 +121,7 @@ export default async function Download() {
                     </div>
                 </section>
 
-                <section className="bg-primary-green px-6 py-9">
+                <section className="bg-primary-green px-6 pt-9 pb-7 border-b border-cream/10">
                     <div className="max-w-6xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-6">
                         <h2 className="font-serif text-2xl md:text-3xl font-bold text-cream">Jak zacząć?</h2>
                         <ol className="flex flex-col md:flex-row md:items-center gap-4 md:gap-8">
@@ -145,13 +138,16 @@ export default async function Download() {
                             ))}
                         </ol>
                     </div>
+                    <p className="max-w-6xl mx-auto mt-8 pt-5 border-t border-cream/15 text-sm text-cream/65">
+                        OH! Club wspiera zdrowe nawyki i świadomość cyklu, nie zastępuje opieki medycznej.
+                    </p>
                 </section>
-
-                <p className="px-6 pt-6 text-center text-sm text-text-dark/60">
-                    OH! Club wspiera zdrowe nawyki i świadomość cyklu, nie zastępuje opieki medycznej.
-                </p>
             </main>
-            <Footer />
+            {/* Stopka ma własne mt-20; tu pasek "Jak zacząć?" przechodzi w nią bez kremowej szczeliny
+                (ujemny margines zapada się z jej górnym marginesem do zera). */}
+            <div className="-mt-20">
+                <Footer />
+            </div>
         </div>
     );
 }

@@ -58,7 +58,7 @@ export default async function Download() {
                 <section className="pt-32 lg:pt-36 pb-16 lg:pb-20 px-6">
                     <div className="max-w-6xl mx-auto grid lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] gap-14 lg:gap-10 items-center">
                         <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
-                            <span className="enter inline-flex rounded-full bg-accent-pink/50 px-4 py-1.5 text-sm font-semibold text-primary-green">
+                            <span className="enter inline-flex rounded-full bg-accent-pink/50 px-3.5 sm:px-4 py-1.5 text-xs sm:text-sm font-semibold text-primary-green whitespace-nowrap">
                                 Dostępne na iOS i Androida · wypróbuj za darmo
                             </span>
 
@@ -66,7 +66,7 @@ export default async function Download() {
                                 className="enter font-serif font-bold text-4xl md:text-5xl lg:text-[3.6rem] leading-[1.08] tracking-tight text-primary-green mt-7"
                                 style={delay(100)}
                             >
-                                Pobierz OH! Club i dbaj o siebie{" "}
+                                Pobierz OH!{"\u00A0"}Club i dbaj o siebie{" "}
                                 <em className="text-secondary-green">w rytmie swoich hormonów</em>
                             </h1>
 

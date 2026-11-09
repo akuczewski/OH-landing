@@ -10,7 +10,7 @@ function trackDownload(platform: "ios" | "android") {
 }
 
 const BADGE =
-    "inline-flex items-center gap-3 pl-5 pr-7 py-3 rounded-full bg-text-dark text-cream shadow-soft hover:shadow-card hover:-translate-y-0.5 transition-all duration-300 active:scale-[0.98] active:translate-y-0";
+    "inline-flex items-center gap-3 min-w-[13rem] pl-5 pr-7 py-3 rounded-full bg-text-dark text-cream shadow-soft hover:shadow-card hover:-translate-y-0.5 transition-all duration-300 active:scale-[0.98] active:translate-y-0";
 
 /** Przyciski pobrania w stylu odznak sklepów (dwie linie, logo platformy) — wariant dla /pobierz. */
 export default function StoreBadges({ className = "" }: { className?: string }) {

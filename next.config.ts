@@ -8,6 +8,10 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "*.media.strapiapp.com" },
     ],
   },
+  // Robocza wersja nowej strony głównej trafiła na "/"; stary link (wysłany do testów) prowadzi na home.
+  async redirects() {
+    return [{ source: "/nowy-landing", destination: "/", permanent: true }];
+  },
 };
 
 export default nextConfig;

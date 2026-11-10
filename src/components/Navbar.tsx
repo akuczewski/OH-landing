@@ -8,7 +8,6 @@ import SocialLinks from "./SocialLinks";
 
 const NAV_LINKS = [
     { href: "/", label: "Home" },
-    { href: "/aplikacja", label: "Aplikacja" },
     { href: "/tworcy", label: "Twórcy" },
     { href: "/cennik", label: "Cennik" },
     { href: "/konsultacje", label: "Konsultacje" },

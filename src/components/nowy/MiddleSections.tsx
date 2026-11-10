@@ -185,7 +185,7 @@ export function CompareSection() {
 
 export type ConsultationOffer = { priceLabel: string; carePriceLabel: string; durationMinutes: number | null };
 
-export function PlansSection({ consultation }: { consultation: ConsultationOffer | null }) {
+export function PlansSection({ consultation, headingAs: Heading = "h2" }: { consultation: ConsultationOffer | null; headingAs?: "h1" | "h2" }) {
     const list = "mt-5 space-y-2";
     const item = "flex items-start gap-2";
     return (
@@ -193,9 +193,9 @@ export function PlansSection({ consultation }: { consultation: ConsultationOffer
             <div className="max-w-6xl mx-auto">
                 <div className="text-center">
                     <Pill>Plany</Pill>
-                    <h2 className="font-serif font-bold text-3xl md:text-[2.75rem] leading-tight tracking-tight text-primary-green mt-4">
+                    <Heading className="font-serif font-bold text-3xl md:text-[2.75rem] leading-tight tracking-tight text-primary-green mt-4">
                         Wybierz swój <Accent>poziom wsparcia</Accent>
-                    </h2>
+                    </Heading>
                 </div>
                 <div className="grid md:grid-cols-3 gap-5 mt-12 items-stretch">
                     <article className="rounded-[1.75rem] bg-white p-7 flex flex-col">
@@ -203,6 +203,7 @@ export function PlansSection({ consultation }: { consultation: ConsultationOffer
                         <p className="font-serif font-bold text-4xl text-primary-green mt-3">
                             49,99 zł<span className="text-base font-sans font-medium text-text-dark/60">/mies.</span>
                         </p>
+                        <p className="text-sm text-text-dark/60 mt-1">lub 479,99 zł rocznie</p>
                         <ul className={list}>
                             {["Quiz i plan dopasowany do cyklu", "Jadłospisy, treningi, rytuały", "Dziennik i nawyki", "Baza wiedzy o hormonach"].map((t) => (
                                 <li key={t} className={item}><CheckIcon className="w-4 h-4 mt-1 text-primary-green" /> {t}</li>
@@ -216,6 +217,7 @@ export function PlansSection({ consultation }: { consultation: ConsultationOffer
                         <p className="font-serif font-bold text-4xl mt-3">
                             129,99 zł<span className="text-base font-sans font-medium text-cream/70">/mies.</span>
                         </p>
+                        <p className="text-sm text-cream/70 mt-1">lub 1239,99 zł rocznie</p>
                         <ul className={list}>
                             {["Wszystko z OH! Club", "Czat z ekspertem OH! Club Care", "30% zniżki na konsultacje online"].map((t) => (
                                 <li key={t} className={item}><CheckIcon className="w-4 h-4 mt-1 text-accent-pink" /> {t}</li>

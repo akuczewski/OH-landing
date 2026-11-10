@@ -1,33 +1,28 @@
 import type { Metadata } from "next";
-import Eyebrow from "@/components/Eyebrow";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
-import PricingCards from "@/components/PricingCards";
+import { PlansSection } from "@/components/nowy/MiddleSections";
+import { getConsultationOffer } from "@/lib/consultationOffer";
 
 export const metadata: Metadata = {
     title: "Cennik",
-    description: "Poznaj plany OH! Club i wybierz ten, który najlepiej dopasuje się do Twojego cyklu.",
+    description: "Plany OH! Club i OH! Club Care oraz cena konsultacji online. 7 dni za darmo.",
 };
 
-export default function Pricing() {
-    return (
-        <div className="min-h-screen bg-cream text-text-dark font-sans selection:bg-accent-pink selection:text-text-dark">
-            <Navbar />
-            <main className="pt-32 pb-24 px-6 max-w-7xl mx-auto min-h-[70vh]">
-                <div className="text-center mb-16 max-w-2xl mx-auto">
-                    <Eyebrow>Plany</Eyebrow>
-                    <h1 className="font-serif text-4xl md:text-5xl text-primary-green font-bold mt-5 mb-6 leading-tight">
-                        Wybierz plan dopasowany do Ciebie
-                    </h1>
-                    <p className="text-lg text-text-dark/70 leading-relaxed">
-                        Dwa plany, jedna aplikacja. Możesz zmienić lub zmodyfikować swój wybór
-                        w każdej chwili.
-                    </p>
-                </div>
+export const revalidate = 3600;
 
-                <PricingCards />
+// Ten sam cennik co na stronie głównej (PlansSection): aplikacja + konsultacja z ceną z CMS.
+export default async function Pricing() {
+    const consultation = await getConsultationOffer();
+    return (
+        <div className="min-h-screen bg-light-cream text-text-dark font-sans selection:bg-accent-pink selection:text-text-dark">
+            <Navbar />
+            <main className="pt-16 min-h-[70vh]">
+                <PlansSection consultation={consultation} headingAs="h1" />
             </main>
-            <Footer />
+            <div className="-mt-20">
+                <Footer />
+            </div>
         </div>
     );
 }

@@ -10,7 +10,11 @@ const nextConfig: NextConfig = {
   },
   // Robocza wersja nowej strony głównej trafiła na "/"; stary link (wysłany do testów) prowadzi na home.
   async redirects() {
-    return [{ source: "/nowy-landing", destination: "/", permanent: true }];
+    return [
+      { source: "/nowy-landing", destination: "/", permanent: true },
+      // Zakładka "Aplikacja" usunięta: jej treść jest na stronie głównej.
+      { source: "/aplikacja", destination: "/", permanent: true },
+    ];
   },
 };
 

@@ -13,7 +13,7 @@ export function InsideSection() {
     return (
         <section className="py-20 lg:py-24 px-6 overflow-hidden">
             <div className="max-w-6xl mx-auto">
-                <div className="text-center">
+                <div data-reveal className="text-center">
                     <Pill>Zajrzyj do środka</Pill>
                     <h2 className="font-serif font-bold text-3xl md:text-[2.75rem] leading-tight tracking-tight text-primary-green mt-5">
                         Plan dopasowany do Twojego <Accent>programu i cyklu</Accent>
@@ -21,7 +21,7 @@ export function InsideSection() {
                 </div>
 
                 <div className="grid lg:grid-cols-2 gap-12 items-center mt-14">
-                    <div>
+                    <div data-reveal>
                         <h3 className="font-serif font-bold text-2xl md:text-3xl leading-snug text-primary-green">
                             Jadłospis dopasowany do <Accent>Twojego programu</Accent>
                         </h3>
@@ -37,17 +37,17 @@ export function InsideSection() {
                     </div>
                     <div className="relative h-[480px] md:h-[540px] w-full max-w-md mx-auto">
                         <div className="absolute -right-10 top-[6%] w-[85%] aspect-square rounded-full bg-accent-pink/70" aria-hidden="true" />
-                        <Phone src="/start/phone-2.png" alt="Jadłospis w aplikacji OH! Club" size="sm" className="absolute left-0 top-0" />
-                        <Phone src="/screenshots/nawyki_v2.png" alt="Nawyki w aplikacji OH! Club" size="sm" className="absolute right-0 top-[12%]" />
+                        <Phone src="/start/phone-2.png" alt="Jadłospis w aplikacji OH! Club" size="sm" parallax={30} className="absolute left-0 top-0" />
+                        <Phone src="/screenshots/nawyki_v2.png" alt="Nawyki w aplikacji OH! Club" size="sm" parallax={70} className="absolute right-0 top-[12%]" />
                     </div>
                 </div>
 
                 <div className="grid lg:grid-cols-2 gap-12 items-center mt-20">
                     <div className="relative flex justify-center order-last lg:order-first">
                         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[20rem] h-[20rem] rounded-full bg-accent-pink/70" aria-hidden="true" />
-                        <Phone src="/screenshots/nawyki.png" alt="Rekomendowany trening na dziś w aplikacji OH! Club" className="relative" />
+                        <Phone src="/screenshots/nawyki.png" alt="Rekomendowany trening na dziś w aplikacji OH! Club" parallax={50} className="relative" />
                     </div>
-                    <div>
+                    <div data-reveal>
                         <h3 className="font-serif font-bold text-2xl md:text-3xl leading-snug text-primary-green">
                             Trening dopasowany do <Accent>Twojego cyklu</Accent>
                         </h3>
@@ -77,7 +77,7 @@ export type CarePerson = { title: string; sub: string; photo: string | null };
 export function CareSection({ people }: { people: CarePerson[] }) {
     return (
         <section className="px-6 pb-20">
-            <div className="max-w-6xl mx-auto rounded-[2rem] bg-primary-green p-8 md:p-10 grid lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] gap-8 items-center">
+            <div data-reveal className="max-w-6xl mx-auto rounded-[2rem] bg-primary-green p-8 md:p-10 grid lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] gap-8 items-center">
                 <div>
                     <Pill tone="solid">OH! Club Care</Pill>
                     <h2 className="font-serif font-bold text-2xl md:text-3xl leading-snug text-cream mt-4">Indywidualne zalecenia i kontakt z ekspertem</h2>
@@ -117,7 +117,7 @@ export function CompareSection() {
     return (
         <section className="bg-accent-pink py-20 px-6">
             <div className="max-w-5xl mx-auto">
-                <div className="text-center">
+                <div data-reveal className="text-center">
                     <Pill tone="white">Porównanie</Pill>
                     <h2 className="font-serif font-bold text-3xl md:text-[2.75rem] leading-tight tracking-tight text-primary-green mt-4">
                         Czy to się <Accent>opłaca</Accent>?
@@ -127,7 +127,7 @@ export function CompareSection() {
                 {/* Telefon: karty zamiast tabeli, żeby kolumna "W OH! Club" nie wypadała poza ekran. */}
                 <ul className="md:hidden mt-8 space-y-3">
                     {COMPARE.map((r) => (
-                        <li key={r.what} className="rounded-3xl bg-white overflow-hidden shadow-soft">
+                        <li data-reveal key={r.what} className="rounded-3xl bg-white overflow-hidden shadow-soft">
                             <div className="px-5 pt-4 pb-3">
                                 <p className="font-bold text-text-dark">{r.what}</p>
                                 <p className="text-sm text-text-dark/65 mt-0.5">Osobno: {r.alone}</p>
@@ -145,7 +145,7 @@ export function CompareSection() {
                         </p>
                     </li>
                 </ul>
-                <div className="hidden md:block mt-8 overflow-x-auto rounded-[1.75rem] shadow-card">
+                <div data-reveal className="hidden md:block mt-8 overflow-x-auto rounded-[1.75rem] shadow-card">
                     <table className="w-full min-w-[40rem] text-left text-sm md:text-base">
                         <thead>
                             <tr className="text-xs font-bold uppercase tracking-[0.12em]">
@@ -174,7 +174,7 @@ export function CompareSection() {
                         </tbody>
                     </table>
                 </div>
-                <div className="text-center mt-7">
+                <div data-reveal className="text-center mt-7">
                     <span className="inline-flex rounded-full bg-primary-green px-6 py-2.5 font-bold text-cream">Oszczędzasz ponad 1100 zł miesięcznie*</span>
                     <p className="text-xs text-text-dark/65 mt-3">*Szacunkowe ceny rynkowe usług i aplikacji.</p>
                 </div>
@@ -191,14 +191,14 @@ export function PlansSection({ consultation, headingAs: Heading = "h2" }: { cons
     return (
         <section className="bg-light-cream py-20 lg:py-24 px-6">
             <div className="max-w-6xl mx-auto">
-                <div className="text-center">
+                <div data-reveal className="text-center">
                     <Pill>Plany</Pill>
                     <Heading className="font-serif font-bold text-3xl md:text-[2.75rem] leading-tight tracking-tight text-primary-green mt-4">
                         Wybierz swój <Accent>poziom wsparcia</Accent>
                     </Heading>
                 </div>
                 <div className="grid md:grid-cols-3 gap-5 mt-12 items-stretch">
-                    <article className="rounded-[1.75rem] bg-white p-7 flex flex-col">
+                    <article data-reveal className="rounded-[1.75rem] bg-white p-7 flex flex-col transition-shadow duration-300 hover:shadow-card">
                         <p className="text-xs font-bold uppercase tracking-[0.15em] text-text-dark/60">OH! Club</p>
                         <p className="font-serif font-bold text-4xl text-primary-green mt-3">
                             49,99 zł<span className="text-base font-sans font-medium text-text-dark/60">/mies.</span>
@@ -211,7 +211,7 @@ export function PlansSection({ consultation, headingAs: Heading = "h2" }: { cons
                         </ul>
                         <div className="mt-auto pt-7"><Link href="/pobierz" className="block text-center rounded-full border-2 border-primary-green px-6 py-3 font-bold text-primary-green hover:bg-primary-green hover:text-cream transition-colors">Wybieram OH! Club</Link></div>
                     </article>
-                    <article className="relative rounded-[1.75rem] bg-primary-green p-7 flex flex-col text-cream md:-mt-4 md:mb-0">
+                    <article data-reveal className="relative rounded-[1.75rem] bg-primary-green p-7 flex flex-col text-cream md:-mt-4 md:mb-0">
                         <Pill tone="solid" className="self-start">Pełna opieka</Pill>
                         <p className="text-xs font-bold uppercase tracking-[0.15em] text-accent-pink mt-4">OH! Club Care</p>
                         <p className="font-serif font-bold text-4xl mt-3">
@@ -225,7 +225,7 @@ export function PlansSection({ consultation, headingAs: Heading = "h2" }: { cons
                         </ul>
                         <div className="mt-auto pt-7"><Link href="/pobierz" className="block text-center rounded-full bg-accent-pink px-6 py-3 font-bold text-text-dark hover:brightness-95 transition">Wybieram Care</Link></div>
                     </article>
-                    <article className="rounded-[1.75rem] bg-white p-7 flex flex-col">
+                    <article data-reveal className="rounded-[1.75rem] bg-white p-7 flex flex-col transition-shadow duration-300 hover:shadow-card">
                         <p className="text-xs font-bold uppercase tracking-[0.15em] text-text-dark/60">Konsultacja online</p>
                         <p className="font-serif font-bold text-4xl text-primary-green mt-3">
                             {consultation?.priceLabel ?? "od 249 zł"}

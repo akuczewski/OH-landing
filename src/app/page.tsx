@@ -1,6 +1,7 @@
 import Footer from "@/components/Footer";
-import MarqueeTicker from "@/components/MarqueeTicker";
 import Navbar from "@/components/Navbar";
+import HomeMotion from "@/components/nowy/HomeMotion";
+import ModernMarquee from "@/components/nowy/ModernMarquee";
 import { ClosingSection, ExpertsSection, FaqSection, FounderSection, TestimonialsSection } from "@/components/nowy/BottomSections";
 import { CareSection, CompareSection, InsideSection, PlansSection } from "@/components/nowy/MiddleSections";
 import { HeroSection, HowItWorksSection, SignalsSection, SolutionSection } from "@/components/nowy/TopSections";
@@ -19,10 +20,17 @@ export default async function Home() {
 
     return (
         <div className="min-h-screen bg-cream text-text-dark font-sans selection:bg-accent-pink selection:text-text-dark">
+            {/* Przed treścią: włącz ukrywanie animowanych elementów tylko przy JS i bez "ogranicz ruch". */}
+            <script
+                dangerouslySetInnerHTML={{
+                    __html: "if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('motion')",
+                }}
+            />
+            <HomeMotion />
             <Navbar />
             <main>
                 <HeroSection klaudiaPhoto={klaudia?.imageUrl ?? APP_PHOTO} />
-                <MarqueeTicker />
+                <ModernMarquee />
                 <SignalsSection />
                 <SolutionSection />
                 <HowItWorksSection />

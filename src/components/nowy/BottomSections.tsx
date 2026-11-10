@@ -12,12 +12,12 @@ export function TestimonialsSection() {
     return (
         <section className="bg-light-cream pt-4 pb-20 px-6">
             <div className="max-w-6xl mx-auto">
-                <h2 className="font-serif font-bold text-3xl md:text-[2.6rem] leading-tight tracking-tight text-primary-green">
+                <h2 data-reveal className="font-serif font-bold text-3xl md:text-[2.6rem] leading-tight tracking-tight text-primary-green">
                     Co mówią kobiety, które z nami <Accent>pracowały</Accent>
                 </h2>
                 <div className="grid md:grid-cols-3 gap-4 mt-8">
                     {QUOTES.map((q) => (
-                        <figure key={q} className="rounded-[1.75rem] bg-white p-7">
+                        <figure data-reveal key={q} className="rounded-[1.75rem] bg-white p-7">
                             <span className="font-serif text-5xl leading-none text-accent-pink" aria-hidden="true">“</span>
                             <blockquote className="italic text-text-dark/85 leading-relaxed mt-1">{q}”</blockquote>
                             <figcaption className="text-xs text-text-dark/50 mt-4">opinia o współpracy z Klaudią</figcaption>
@@ -33,13 +33,13 @@ export function FounderSection({ photo }: { photo: string }) {
     return (
         <section className="bg-light-cream pb-20 lg:pb-24 px-6">
             <div className="max-w-6xl mx-auto grid lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] gap-12 lg:gap-16 items-center">
-                <div className="relative w-full max-w-sm mx-auto lg:mx-0">
+                <div data-reveal className="relative w-full max-w-sm mx-auto lg:mx-0">
                     <div className="absolute -left-4 -top-4 w-full h-full rounded-[2.5rem] bg-accent-pink" aria-hidden="true" />
                     <div className="relative aspect-[4/5] rounded-[2.5rem] overflow-hidden">
                         <Image src={photo} alt="Klaudia Kubrak, założycielka OH! Club" fill sizes="(min-width: 1024px) 24rem, 90vw" className="object-cover object-top" />
                     </div>
                 </div>
-                <div>
+                <div data-reveal>
                     <Pill>Historia założycielki</Pill>
                     <h2 className="font-serif font-bold text-3xl md:text-[2.6rem] leading-tight tracking-tight text-primary-green mt-5">
                         Ja też kiedyś czułam się <Accent>zagubiona</Accent>
@@ -66,16 +66,16 @@ export function ExpertsSection({ experts }: { experts: ExpertCard[] }) {
     return (
         <section className="bg-light-cream pb-20 px-6">
             <div className="max-w-6xl mx-auto">
-                <h2 className="font-serif font-bold text-3xl md:text-[2.6rem] leading-tight tracking-tight text-primary-green">
+                <h2 data-reveal className="font-serif font-bold text-3xl md:text-[2.6rem] leading-tight tracking-tight text-primary-green">
                     Poznaj ekspertów <Accent>OH! Club</Accent>
                 </h2>
                 <p className="text-text-dark/70 mt-2">Za planami, treningami, przepisami i rytuałami stoi zespół doświadczonych specjalistów.</p>
                 <ul className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 mt-8">
                     {experts.map((e) => (
-                        <li key={e.name} className="rounded-[1.5rem] bg-white overflow-hidden">
+                        <li data-reveal key={e.name} className="group rounded-[1.5rem] bg-white overflow-hidden">
                             <div className="relative aspect-[4/5] bg-accent-pink/30">
                                 {e.photo ? (
-                                    <Image src={e.photo} alt={e.name} fill sizes="(min-width: 1024px) 18rem, 45vw" className={`${e.fit === "contain" ? "object-contain" : "object-cover"} ${e.align === "top" ? "object-top" : "object-center"}`} />
+                                    <Image src={e.photo} alt={e.name} fill sizes="(min-width: 1024px) 18rem, 45vw" className={`${e.fit === "contain" ? "object-contain" : "object-cover"} ${e.align === "top" ? "object-top" : "object-center"} transition-transform duration-700 ease-out group-hover:scale-105`} />
                                 ) : (
                                     <span className="absolute inset-0 flex items-center justify-center font-serif text-4xl text-primary-green">{e.name[0]}</span>
                                 )}
@@ -121,7 +121,7 @@ export function FaqSection() {
     const col = (items: typeof FAQ) => (
         <div className="space-y-3">
             {items.map((f) => (
-                <details key={f.q} className="group rounded-3xl bg-white px-6 py-4">
+                <details data-reveal key={f.q} className="group rounded-3xl bg-white px-6 py-4">
                     <summary className="cursor-pointer list-none font-bold text-text-dark flex items-start gap-2">
                         <span className="text-xs mt-1.5 transition-transform group-open:rotate-90" aria-hidden="true">▶</span>
                         {f.q}
@@ -134,7 +134,7 @@ export function FaqSection() {
     return (
         <section className="bg-light-cream pb-20 px-6">
             <div className="max-w-6xl mx-auto">
-                <h2 className="font-serif font-bold text-3xl md:text-[2.6rem] leading-tight tracking-tight text-primary-green">
+                <h2 data-reveal className="font-serif font-bold text-3xl md:text-[2.6rem] leading-tight tracking-tight text-primary-green">
                     Najczęstsze <Accent>pytania</Accent>
                 </h2>
                 <div className="grid md:grid-cols-2 gap-3 mt-8 items-start">
@@ -150,7 +150,7 @@ export function ClosingSection({ klaudiaPhoto }: { klaudiaPhoto: string }) {
     return (
         <section className="bg-light-cream pb-10 px-6">
             <div className="max-w-6xl mx-auto">
-                <div className="rounded-[2rem] bg-primary-green px-6 py-14 text-center">
+                <div data-reveal className="rounded-[2rem] bg-primary-green px-6 py-14 text-center">
                     <h2 className="font-serif font-bold text-3xl md:text-[2.75rem] leading-tight text-cream">
                         Gotowa, by zadbać o siebie <Accent tone="pink">inaczej</Accent>?
                     </h2>
@@ -159,7 +159,7 @@ export function ClosingSection({ klaudiaPhoto }: { klaudiaPhoto: string }) {
                     </div>
                 </div>
 
-                <div className="mt-6 rounded-[2rem] bg-white p-6 md:p-7 flex flex-col md:flex-row items-center gap-6">
+                <div data-reveal className="mt-6 rounded-[2rem] bg-white p-6 md:p-7 flex flex-col md:flex-row items-center gap-6">
                     <div className="relative w-20 h-24 shrink-0 rounded-2xl overflow-hidden bg-accent-pink/30">
                         <Image src={klaudiaPhoto} alt="Okładka ebooka Badania hormonalne" fill sizes="80px" className="object-cover object-top" />
                     </div>

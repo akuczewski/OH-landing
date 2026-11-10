@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 // Wspólne klocki nowej strony głównej (/nowy-landing). Kolory i odstępy z tokenów globals.css.
@@ -32,12 +33,12 @@ export function Flower({ className = "" }: { className?: string }) {
 }
 
 /** Telefon z prawdziwym screenem aplikacji; dół ekranu wygasza się w tło. */
-export function Phone({ src, alt, size = "md", className = "" }: { src: string; alt: string; size?: "sm" | "md"; className?: string }) {
+export function Phone({ src, alt, size = "md", className = "", parallax }: { src: string; alt: string; size?: "sm" | "md"; className?: string; parallax?: number }) {
     const dims = size === "sm" ? "w-[170px] h-[350px] md:w-[200px] md:h-[410px]" : "w-[210px] h-[440px] md:w-[250px] md:h-[520px]";
     return (
-        <div className={`p-2 rounded-[2.6rem] bg-text-dark shadow-2xl ring-1 ring-black/5 ${className}`}>
+        <div data-parallax={parallax} className={`p-2 rounded-[2.6rem] bg-text-dark shadow-2xl ring-1 ring-black/5 ${className}`}>
             <div className={`relative ${dims} rounded-[2.2rem] overflow-hidden bg-light-cream`}>
-                <img src={src} alt={alt} className="w-full h-full object-cover object-top" />
+                <Image src={src} alt={alt} fill sizes="(min-width: 768px) 250px, 210px" className="object-cover object-top" />
                 <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-b from-transparent via-light-cream/70 to-light-cream" />
             </div>
         </div>

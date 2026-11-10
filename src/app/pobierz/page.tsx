@@ -20,7 +20,7 @@ function Phone({ src, alt, className = "" }: { src: string; alt: string; classNa
     return (
         <div className={`p-2 rounded-[2.6rem] bg-text-dark shadow-2xl ring-1 ring-black/5 ${className}`}>
             <div className="relative w-[200px] h-[420px] md:w-[240px] md:h-[500px] rounded-[2.2rem] overflow-hidden bg-light-cream">
-                <img src={src} alt={alt} className="w-full h-full object-cover object-top" />
+                <Image src={src} alt={alt} fill sizes="(min-width: 768px) 240px, 200px" priority className="object-cover object-top" />
                 <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-b from-transparent via-light-cream/70 to-light-cream backdrop-blur-[1px]" />
             </div>
         </div>

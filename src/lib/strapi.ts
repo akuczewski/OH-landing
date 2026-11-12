@@ -75,3 +75,31 @@ export async function getCreators(): Promise<Creator[]> {
         return [];
     }
 }
+
+export type FaqItem = { id: number; question: string; answer: string };
+
+/**
+ * FAQ ze Strapi: ta sama kolekcja "Pomoc — pytanie FAQ" (faq-item), którą aplikacja pokazuje
+ * w Profil → Pomoc, więc treść edytuje się w jednym miejscu. Kolejność wg pola `order`.
+ * Odświeżanie co 5 min. Na błąd zwraca [] (sekcja FAQ się wtedy nie pokazuje).
+ */
+export async function getFaqItems(): Promise<FaqItem[]> {
+    try {
+        const res = await fetch(`${STRAPI_URL}/api/faq-items?sort=order:asc&pagination[pageSize]=100`, {
+            headers: STRAPI_API_TOKEN ? { Authorization: `Bearer ${STRAPI_API_TOKEN}` } : {},
+            next: { revalidate: 300 },
+        });
+        if (!res.ok) {
+            console.warn(`[Strapi] FAQ fetch nie-OK: ${res.status}`);
+            return [];
+        }
+        const json = await res.json();
+        const entries: { id: number; question?: string; answer?: string }[] = json?.data ?? [];
+        return entries
+            .filter((e) => e.question?.trim() && e.answer?.trim())
+            .map((e) => ({ id: e.id, question: e.question!.trim(), answer: e.answer!.trim() }));
+    } catch (error) {
+        console.error("[Strapi] FAQ fetch error:", error);
+        return [];
+    }
+}

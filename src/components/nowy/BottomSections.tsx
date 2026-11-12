@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import type { FaqItem } from "@/lib/strapi";
 import { Accent, CtaLink, Pill } from "./ui";
 
 const QUOTES = [
@@ -93,40 +94,45 @@ export function ExpertsSection({ experts }: { experts: ExpertCard[] }) {
     );
 }
 
-const FAQ: { q: string; a: React.ReactNode }[] = [
-    { q: "Czym jest OH! Club?", a: "Aplikacją, która łączy cykl, dietę, ruch i pielęgnację w jednym miejscu i dopasowuje je do fazy cyklu." },
-    { q: "Jak działa quiz?", a: "Zajmuje około 2 minut. Na jego podstawie aplikacja dopasowuje program i plan odżywiania do Twoich potrzeb." },
-    { q: "Czy mogę zmieniać posiłki w jadłospisie?", a: "Tak, posiłki możesz wymieniać i edytować, a w Preferencjach ustawisz liczbę posiłków i cel kalorii." },
-    { q: "Czym różni się OH! Club od OH! Club Care?", a: "OH! Club to aplikacja z planem, treściami i dziennikiem. Care dodaje kontakt z ekspertem i 30% zniżki na konsultacje." },
-    { q: "Czy aplikacja zastępuje lekarza?", a: "Nie. OH! Club wspiera zdrowe nawyki i świadomość cyklu, nie zastępuje leczenia ani konsultacji lekarskiej." },
-    {
-        q: "Czy działa przy nieregularnym cyklu, PCOS lub antykoncepcji?",
-        a: "Fazy wyznaczamy na podstawie długości cyklu i daty ostatniej miesiączki. Gdy cykl jest nieregularny, zaznaczasz w aplikacji początek miesiączki, a fazy przeliczają się od nowa. [UZUPEŁNIJ: jak traktujemy antykoncepcję hormonalną]",
-    },
-    { q: "Jak działa 7 dni za darmo?", a: "Subskrypcję zakładasz w App Store lub Google Play, a pierwsze 7 dni jest bezpłatne. Jeśli anulujesz przed końcem okresu próbnego, nic nie zapłacisz. Potem subskrypcja odnawia się automatycznie." },
-    { q: "Jak zrezygnować lub zmienić plan?", a: "W każdej chwili w ustawieniach subskrypcji App Store lub Google Play. Do zarządzania subskrypcją przejdziesz też z aplikacji: Profil, Twój plan." },
-    {
-        q: "Co dzieje się z moimi danymi?",
-        a: (
-            <>
-                Dane zdrowotne, takie jak cykl, objawy i dziennik, zostają na Twoim telefonie. Szczegóły znajdziesz w{" "}
-                <Link href="/polityka-prywatnosci" className="underline underline-offset-2">polityce prywatności</Link>.
-            </>
-        ),
-    },
-];
+// Odpowiedzi z CMS to zwykły tekst: akapity po pustej linii/enterze, a wzmianka o polityce
+// prywatności dostaje link do /polityka-prywatnosci.
+const PRIVACY_PHRASE = /(polityc[eiy] prywatności|polityka prywatności)/i;
 
-export function FaqSection() {
-    const half = Math.ceil(FAQ.length / 2);
-    const col = (items: typeof FAQ) => (
+function FaqAnswer({ text }: { text: string }) {
+    return (
+        <>
+            {text.split(/\n+/).map((para, i) => {
+                const parts = para.split(PRIVACY_PHRASE);
+                return (
+                    <p key={i} className="text-text-dark/75 leading-relaxed mt-3 pl-5">
+                        {parts.map((part, j) =>
+                            PRIVACY_PHRASE.test(part) ? (
+                                <Link key={j} href="/polityka-prywatnosci" className="underline underline-offset-2">
+                                    {part}
+                                </Link>
+                            ) : (
+                                part
+                            )
+                        )}
+                    </p>
+                );
+            })}
+        </>
+    );
+}
+
+export function FaqSection({ items }: { items: FaqItem[] }) {
+    if (items.length === 0) return null;
+    const half = Math.ceil(items.length / 2);
+    const col = (list: FaqItem[]) => (
         <div className="space-y-3">
-            {items.map((f) => (
-                <details data-reveal key={f.q} className="group rounded-3xl bg-white px-6 py-4">
+            {list.map((f) => (
+                <details data-reveal key={f.id} className="group rounded-3xl bg-white px-6 py-4">
                     <summary className="cursor-pointer list-none font-bold text-text-dark flex items-start gap-2">
                         <span className="text-xs mt-1.5 transition-transform group-open:rotate-90" aria-hidden="true">▶</span>
-                        {f.q}
+                        {f.question}
                     </summary>
-                    <p className="text-text-dark/75 leading-relaxed mt-3 pl-5">{f.a}</p>
+                    <FaqAnswer text={f.answer} />
                 </details>
             ))}
         </div>
@@ -138,8 +144,8 @@ export function FaqSection() {
                     Najczęstsze <Accent>pytania</Accent>
                 </h2>
                 <div className="grid md:grid-cols-2 gap-3 mt-8 items-start">
-                    {col(FAQ.slice(0, half))}
-                    {col(FAQ.slice(half))}
+                    {col(items.slice(0, half))}
+                    {col(items.slice(half))}
                 </div>
             </div>
         </section>

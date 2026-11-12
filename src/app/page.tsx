@@ -6,7 +6,7 @@ import { ClosingSection, ExpertsSection, FaqSection, FounderSection, Testimonial
 import { CareSection, CompareSection, InsideSection, PlansSection } from "@/components/nowy/MiddleSections";
 import { HeroSection, HowItWorksSection, SignalsSection, SolutionSection } from "@/components/nowy/TopSections";
 import { getConsultationOffer } from "@/lib/consultationOffer";
-import { getCreators } from "@/lib/strapi";
+import { getCreators, getFaqItems } from "@/lib/strapi";
 
 // Strona główna wg makiety "OH! Club nowy landing" (strony 1-9). Tytuł i opis z layout.tsx.
 export const revalidate = 3600;
@@ -14,7 +14,7 @@ export const revalidate = 3600;
 const APP_PHOTO = "/nowy-landing/klaudia-aplikacja.jpg";
 
 export default async function Home() {
-    const [creators, consultation] = await Promise.all([getCreators(), getConsultationOffer()]);
+    const [creators, consultation, faq] = await Promise.all([getCreators(), getConsultationOffer(), getFaqItems()]);
     const klaudia = creators.find((c) => c.name.toLowerCase().includes("klaudia"));
     const cosmetologist = creators.find((c) => /^kosmetolog/i.test(c.role.trim()));
 
@@ -52,7 +52,7 @@ export default async function Home() {
                 <ExpertsSection
                     experts={creators.map((c) => ({ name: c.name, role: c.role, photo: c.imageUrl, fit: c.imageFit, align: c.imageAlign }))}
                 />
-                <FaqSection />
+                <FaqSection items={faq} />
                 <ClosingSection klaudiaPhoto={APP_PHOTO} />
             </main>
             <div className="-mt-20">

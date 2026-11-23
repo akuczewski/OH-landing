@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { FaqItem } from "@/lib/strapi";
+import { EbookCard } from "./EbookCard";
 import { Accent, CtaLink, Pill } from "./ui";
 
 const QUOTES = [
@@ -165,22 +166,7 @@ export function ClosingSection({ klaudiaPhoto }: { klaudiaPhoto: string }) {
                     </div>
                 </div>
 
-                <div data-reveal className="mt-6 rounded-[2rem] bg-white p-6 md:p-7 flex flex-col md:flex-row items-center gap-6">
-                    <div className="relative w-20 h-24 shrink-0 rounded-2xl overflow-hidden bg-accent-pink/30">
-                        <Image src={klaudiaPhoto} alt="Okładka ebooka Badania hormonalne" fill sizes="80px" className="object-cover object-top" />
-                    </div>
-                    <div className="flex-1 text-center md:text-left">
-                        <h3 className="font-serif font-bold text-2xl text-primary-green">
-                            Darmowy ebook: <Accent>Badania hormonalne</Accent>
-                        </h3>
-                        <p className="text-text-dark/70 mt-1">
-                            Co zbadać i jak przygotować się do diagnostyki. Masz już wyniki? Omów je ze specjalistką z OH! Club Care.
-                        </p>
-                    </div>
-                    <a href="/lista-badan-hormonalnych.pdf" target="_blank" rel="noopener noreferrer" className="rounded-full bg-accent-pink px-7 py-3 font-bold text-text-dark hover:brightness-95 transition">
-                        Pobierz
-                    </a>
-                </div>
+                <EbookCard photo={klaudiaPhoto} />
 
                 <p className="text-center text-sm text-text-dark/60 mt-8">
                     OH! Club wspiera zdrowe nawyki i świadomość cyklu, nie zastępuje opieki medycznej.

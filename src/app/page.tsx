@@ -12,6 +12,8 @@ import { getCreators, getFaqItems } from "@/lib/strapi";
 export const revalidate = 3600;
 
 const APP_PHOTO = "/nowy-landing/klaudia-aplikacja.jpg";
+const HERO_PHOTO = "/nowy-landing/klaudia-hero.jpg";
+const FOUNDER_PHOTO = "/nowy-landing/klaudia-przemiana.jpg";
 
 export default async function Home() {
     const [creators, consultation, faq] = await Promise.all([getCreators(), getConsultationOffer(), getFaqItems()]);
@@ -29,7 +31,7 @@ export default async function Home() {
             <HomeMotion />
             <Navbar />
             <main>
-                <HeroSection klaudiaPhoto={klaudia?.imageUrl ?? APP_PHOTO} />
+                <HeroSection klaudiaPhoto={HERO_PHOTO} />
                 <ModernMarquee />
                 <SignalsSection />
                 <SolutionSection />
@@ -48,12 +50,12 @@ export default async function Home() {
                 <CompareSection />
                 <PlansSection consultation={consultation} />
                 <TestimonialsSection />
-                <FounderSection photo={APP_PHOTO} />
+                <FounderSection photo={FOUNDER_PHOTO} />
                 <ExpertsSection
                     experts={creators.map((c) => ({ name: c.name, role: c.role, photo: c.imageUrl, fit: c.imageFit, align: c.imageAlign }))}
                 />
                 <FaqSection items={faq} />
-                <ClosingSection klaudiaPhoto={APP_PHOTO} />
+                <ClosingSection />
             </main>
             <div className="-mt-20">
                 <Footer />

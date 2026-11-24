@@ -37,8 +37,8 @@ export function FounderSection({ photo }: { photo: string }) {
             <div className="max-w-6xl mx-auto grid lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] gap-12 lg:gap-16 items-center">
                 <div data-reveal className="relative w-full max-w-sm mx-auto lg:mx-0">
                     <div className="absolute -left-4 -top-4 w-full h-full rounded-[2.5rem] bg-accent-pink" aria-hidden="true" />
-                    <div className="relative aspect-[4/5] rounded-[2.5rem] overflow-hidden">
-                        <Image src={photo} alt="Klaudia Kubrak, założycielka OH! Club" fill sizes="(min-width: 1024px) 24rem, 90vw" className="object-cover object-top" />
+                    <div className="relative aspect-square rounded-[2.5rem] overflow-hidden">
+                        <Image src={photo} alt="Klaudia Kubrak, założycielka OH! Club, kiedyś i dziś" fill sizes="(min-width: 1024px) 24rem, 90vw" className="object-cover object-center" />
                     </div>
                 </div>
                 <div data-reveal>
@@ -153,7 +153,7 @@ export function FaqSection({ items }: { items: FaqItem[] }) {
     );
 }
 
-export function ClosingSection({ klaudiaPhoto }: { klaudiaPhoto: string }) {
+export function ClosingSection() {
     return (
         <section className="bg-light-cream pb-10 px-6">
             <div className="max-w-6xl mx-auto">
@@ -166,7 +166,7 @@ export function ClosingSection({ klaudiaPhoto }: { klaudiaPhoto: string }) {
                     </div>
                 </div>
 
-                <EbookCard photo={klaudiaPhoto} />
+                <EbookCard />
 
                 <p className="text-center text-sm text-text-dark/60 mt-8">
                     OH! Club wspiera zdrowe nawyki i świadomość cyklu, nie zastępuje opieki medycznej.

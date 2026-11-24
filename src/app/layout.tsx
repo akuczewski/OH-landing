@@ -52,8 +52,10 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // Skrypt w page.tsx dodaje klasę "motion" do <html> przed hydratacją (animacje wejść),
+  // stąd suppressHydrationWarning na <html>.
   return (
-    <html lang="pl">
+    <html lang="pl" suppressHydrationWarning>
       <body className={`${inter.variable} ${playfair.variable} antialiased`} suppressHydrationWarning>
         <div className="grain-overlay" aria-hidden="true" />
         {children}

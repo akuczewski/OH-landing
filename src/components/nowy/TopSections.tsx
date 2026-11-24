@@ -257,7 +257,7 @@ export function HowItWorksSection() {
                 <div className="relative hidden lg:flex justify-center">
                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[22rem] h-[22rem] rounded-full bg-accent-pink/70" aria-hidden="true" />
                     <Flower className="absolute left-4 top-0 w-14 h-14 z-10" />
-                    <Phone src="/screenshots/nawyki_v2.png" alt="Nawyki w aplikacji OH! Club" parallax={50} className="relative" />
+                    <Phone src="/screenshots/nawyki_v3.png" alt="Nawyki w aplikacji OH! Club" parallax={50} className="relative" />
                 </div>
                 <div>
                     <h2 data-reveal className="font-serif font-bold text-3xl md:text-[2.75rem] leading-tight tracking-tight text-primary-green">
